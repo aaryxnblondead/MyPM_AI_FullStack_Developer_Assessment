@@ -74,6 +74,22 @@ export type CandidateChunks = {
   chunks: ChunkItem[];
 };
 
+export type CandidateListItem = {
+  id: string;
+  name: string;
+  target_role: string;
+  resume_structured: ResumeStructured | null;
+  chunk_count: number;
+  injection_flagged: boolean;
+  created_at: string | null;
+};
+
+export type PdfExtractResult = {
+  text: string;
+  pages: number;
+  chars: number;
+};
+
 export type CandidateDetail = {
   id: string;
   name: string;
@@ -190,11 +206,24 @@ export function getCandidateChunks(id: string): Promise<CandidateChunks> {
   return apiGet<CandidateChunks>(`/api/candidates/${id}/chunks`);
 }
 
+export function listCandidates(limit = 50, offset = 0): Promise<CandidateListItem[]> {
+  return apiGet<CandidateListItem[]>(`/api/candidates?limit=${limit}&offset=${offset}`);
+}
+
+export async function extractPdf(file: File): Promise<PdfExtractResult> {
+  const base = getApiBaseUrl();
+  const form = new FormData();
+  form.append("file", file);
+  const res = await fetch(`${base}/api/extract-pdf`, { method: "POST", body: form });
+  return handleResponse<PdfExtractResult>(res);
+}
+
 export function friendlyError(e: unknown): string {
   if (e instanceof ApiError) {
     if (e.status === 422) return "Some fields need attention. Check the highlighted fields.";
     if (e.status === 502) return "The AI service failed. Try again in a moment.";
     if (e.status === 504) return "The AI service timed out. Try again in a moment.";
+    if (e.status === 413) return "That file is too large. Use a smaller file.";
     if (e.status === 404) return "That record was not found.";
     return e.message;
   }

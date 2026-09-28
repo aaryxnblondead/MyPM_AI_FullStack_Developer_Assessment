@@ -10,6 +10,7 @@ from app.db_init import init_db
 from app.routers.candidates import router as candidates_router
 from app.routers.evaluations import router as evaluations_router
 from app.routers.health import router as health_router
+from app.routers.pdf import router as pdf_router
 
 
 @asynccontextmanager
@@ -31,6 +32,7 @@ app.add_middleware(
 app.include_router(health_router)
 app.include_router(candidates_router)
 app.include_router(evaluations_router)
+app.include_router(pdf_router)
 
 
 @app.exception_handler(RequestValidationError)

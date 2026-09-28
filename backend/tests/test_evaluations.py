@@ -80,3 +80,22 @@ def test_patch_validates_length(tmp_path, monkeypatch):
         assert r2.json()["explanation_edited"] == "Edited note."
     finally:
         app.dependency_overrides.clear()
+
+
+def test_candidates_list_returns_newest_first(tmp_path, monkeypatch):
+    c, session = _override_client(tmp_path, "cands.db")
+    try:
+        db = session()
+        db.add(models.Candidate(name="Asha Rao", target_role="CSM", resume_text="HubSpot work.", resume_structured={"skills": [{"name": "HubSpot", "source": "HubSpot work.", "known": True}]}))
+        db.add(models.Candidate(name="Dev Patel", target_role="AE", resume_text="Salesforce work.", resume_structured={"skills": []}))
+        db.commit()
+        db.close()
+        r = c.get("/api/candidates?limit=50&offset=0")
+        assert r.status_code == 200
+        body = r.json()
+        assert len(body) == 2
+        assert body[0]["name"] == "Dev Patel"
+        first_struct = body[1]["resume_structured"]
+        assert first_struct["skills"][0]["name"] == "HubSpot"
+    finally:
+        app.dependency_overrides.clear()

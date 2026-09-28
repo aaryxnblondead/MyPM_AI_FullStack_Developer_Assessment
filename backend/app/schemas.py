@@ -83,6 +83,16 @@ class CandidateDetail(BaseModel):
     injection_flagged: bool
 
 
+class CandidateListItem(BaseModel):
+    id: str
+    name: str
+    target_role: str
+    resume_structured: dict[str, Any] | None = None
+    chunk_count: int = 0
+    injection_flagged: bool = False
+    created_at: Any = None
+
+
 class ChunkItem(BaseModel):
     id: str
     chunk_index: int

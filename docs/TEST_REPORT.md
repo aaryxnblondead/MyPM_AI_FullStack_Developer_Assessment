@@ -149,11 +149,24 @@ Unit tests verify:
 4. **Live eval_live.py**: Requires funded API key to run
 5. **SQLite extension**: Requires Python with load_extension support (works on Windows Python 3.13)
 
+## PDF upload and resumes view (2026-09-28)
+
+| Check | Result |
+|-------|--------|
+| Valid PDF extracts text with page and char counts | ✅ PASS (mocked, 7 tests) |
+| Non-PDF renamed .pdf rejected | ✅ 422 |
+| Oversized file rejected | ✅ 413 |
+| Empty and scanned PDFs rejected with OCR note | ✅ 422 |
+| Encrypted and corrupt PDFs rejected | ✅ 422 |
+| Injection line in PDF survives extraction for downstream flagging | ✅ PASS |
+| Candidates list returns newest first with structured skills | ✅ PASS (live) |
+| Frontend routes `/`, `/resumes`, `/history` serve | ✅ 200 |
+
 ## Recommendations
 
 1. Fund Gemini API key for live end-to-end testing
 2. Update README with current setup instructions
-3. Implement PDF upload as bonus (Part C)
+3. ~~Implement PDF upload as bonus (Part C)~~ Done, see above
 4. Add more injection variant tests (fake system message, fake delimiter, JD injection)
 5. Consider adding integration test with real LLM (when billing available)
 

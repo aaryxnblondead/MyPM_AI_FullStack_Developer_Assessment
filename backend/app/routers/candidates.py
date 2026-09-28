@@ -3,7 +3,14 @@ from sqlalchemy.orm import Session
 
 from app import models
 from app.db import get_db
-from app.schemas import CandidateChunks, CandidateDetail, ChunkItem, IngestRequest, IngestResponse
+from app.schemas import (
+    CandidateChunks,
+    CandidateDetail,
+    CandidateListItem,
+    ChunkItem,
+    IngestRequest,
+    IngestResponse,
+)
 from app.services import ingest as ingest_svc
 
 router = APIRouter(prefix="/api/candidates", tags=["candidates"])
@@ -21,6 +28,33 @@ def ingest(req: IngestRequest, db: Session = Depends(get_db)) -> IngestResponse:
         job_description=req.job_description,
     )
     return IngestResponse(**result)
+
+
+@router.get("", response_model=list[CandidateListItem])
+def list_candidates(limit: int = 50, offset: int = 0, db: Session = Depends(get_db)) -> list[CandidateListItem]:
+    limit = max(1, min(limit, 100))
+    rows = (
+        db.query(models.Candidate)
+        .order_by(models.Candidate.created_at.desc())
+        .offset(offset)
+        .limit(limit)
+        .all()
+    )
+    out: list[CandidateListItem] = []
+    for cand in rows:
+        count = db.query(models.ResumeChunk).filter_by(candidate_id=cand.id).count()
+        out.append(
+            CandidateListItem(
+                id=cand.id,
+                name=cand.name,
+                target_role=cand.target_role,
+                resume_structured=cand.resume_structured,
+                chunk_count=count,
+                injection_flagged=cand.injection_flagged,
+                created_at=cand.created_at,
+            )
+        )
+    return out
 
 
 @router.get("/{candidate_id}", response_model=CandidateDetail)

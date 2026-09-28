@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { Spinner } from "@/components/ui/Spinner";
 import { Textarea } from "@/components/ui/Textarea";
-import { createEvaluation, friendlyError } from "@/lib/api";
+import { createEvaluation, extractPdf, friendlyError } from "@/lib/api";
 
 const STEPS = ["Extracting resume", "Indexing", "Matching requirements", "Writing outreach"];
 
@@ -55,6 +55,8 @@ export default function Home() {
   const [running, setRunning] = useState(false);
   const [step, setStep] = useState(0);
   const [submitError, setSubmitError] = useState("");
+  const [pdfBusy, setPdfBusy] = useState(false);
+  const [pdfNote, setPdfNote] = useState("");
   const timers = useRef<number[]>([]);
 
   useEffect(() => {
@@ -69,6 +71,24 @@ export default function Home() {
     setFields((f) => ({ ...f, [key]: e.target.value }));
     setErrors((prev) => ({ ...prev, [key]: undefined }));
   };
+
+  async function onPdf(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    setPdfBusy(true);
+    setPdfNote("");
+    try {
+      const out = await extractPdf(file);
+      setFields((f) => ({ ...f, resumeText: out.text }));
+      setErrors((prev) => ({ ...prev, resumeText: undefined }));
+      setPdfNote(`Filled from ${out.pages} page PDF. Review and edit before running.`);
+    } catch (err) {
+      setPdfNote(friendlyError(err));
+    } finally {
+      setPdfBusy(false);
+    }
+  }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -137,6 +157,24 @@ export default function Home() {
             </div>
             <div>
               <Label htmlFor="resumeText">Resume Text</Label>
+              <div className="mt-2 flex items-center gap-3">
+                <label
+                  htmlFor="resumePdf"
+                  className="cursor-pointer rounded-pill border border-border bg-surface px-4 py-2 font-display text-sm font-medium text-title hover:border-primary"
+                >
+                  Upload PDF
+                </label>
+                <input
+                  id="resumePdf"
+                  type="file"
+                  accept="application/pdf,.pdf"
+                  className="sr-only"
+                  disabled={running || pdfBusy}
+                  onChange={onPdf}
+                />
+                {pdfBusy ? <span className="text-sm text-muted">Reading PDF...</span> : null}
+              </div>
+              {pdfNote ? <p className="mt-1 text-sm text-muted">{pdfNote}</p> : null}
               <Textarea
                 id="resumeText"
                 value={fields.resumeText}

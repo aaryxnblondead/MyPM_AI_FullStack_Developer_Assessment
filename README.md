@@ -67,12 +67,13 @@ cd backend
 - Fit category computed in code, not by LLM (Strong Fit ≥75, Moderate 45-74, Weak <45)
 - Explanation and outreach email editable, outreach copyable
 - Evaluations persist and reopen from History
+- Resumes view at `/resumes` lists every ingested resume with extracted skills, searchable by name, role, or skill
+- PDF upload on the analysis form fills the resume textarea (5 MB max, 10 pages, scanned and encrypted PDFs rejected with clear notes)
 - Injection scenarios pass (flagged, not inflated, text never used as evidence)
 - UI uses extracted talentstack.in tokens throughout
 
 ### Known Limitations
 - **Gemini API**: Live evaluation requires funded API key (currently returns 402 RESOURCE_EXHAUSTED)
-- **PDF upload**: Not implemented (bonus feature, Part C)
 - **Live eval_live.py**: Requires funded API key
 - **README**: This document covers setup
 
