@@ -1,0 +1,116 @@
+import re
+from typing import Any
+
+from fastapi import HTTPException
+from pydantic import BaseModel, field_validator
+from sqlalchemy.orm import Session
+
+from app import models
+from app.config import settings
+from app.prompts.judge import JUDGE_SCHEMA, JUDGE_SYSTEM, judge_user
+from app.services import embedder, isolation, vectors
+from app.services.llm import generate_json
+from app.services.scoring import NO_EVIDENCE_TEXT
+
+
+class Evidence(BaseModel):
+    chunk_id: str
+    quote: str
+
+
+class JudgeItem(BaseModel):
+    requirement_id: str
+    verdict: str
+    evidence: list[Evidence] = []
+    reasoning: str = ""
+
+    @field_validator("verdict")
+    @classmethod
+    def _verdict(cls, v: str) -> str:
+        if v not in ("met", "partial", "no_evidence"):
+            raise ValueError("bad verdict")
+        return v
+
+
+def norm(s: str) -> str:
+    return re.sub(r"\s+", " ", s.strip().lower())
+
+
+def retrieve_chunks(db: Session, candidate_id: str, requirement_text: str) -> list[models.ResumeChunk]:
+    qvec = embedder.embed_query(requirement_text)
+    hits = vectors.nearest_chunks_for_candidate(db, candidate_id, qvec, settings.retrieval_k)
+    ids = [cid for cid, _ in hits]
+    rows = db.query(models.ResumeChunk).filter(models.ResumeChunk.id.in_(ids)).all() if ids else []
+    order = {cid: i for i, (cid, _) in enumerate(hits)}
+    rows.sort(key=lambda r: order.get(r.id, 999))
+    return rows
+
+
+def verify_item(raw: dict[str, Any], retrieved: dict[str, models.ResumeChunk]) -> dict[str, Any]:
+    item = JudgeItem.model_validate(raw)
+    kept: list[dict[str, str]] = []
+    for ev in item.evidence:
+        chunk = retrieved.get(ev.chunk_id)
+        if chunk is None:
+            continue
+        if ev.quote and norm(ev.quote) in norm(chunk.text):
+            kept.append({"chunk_id": ev.chunk_id, "quote": ev.quote})
+    verdict = item.verdict
+    if verdict in ("met", "partial") and not kept:
+        verdict = "no_evidence"
+    if verdict == "no_evidence":
+        kept = []
+    return {
+        "requirement_id": item.requirement_id,
+        "verdict": verdict,
+        "evidence": kept,
+        "reasoning": item.reasoning,
+    }
+
+
+def judge_one(requirement: dict[str, Any], chunks: list[models.ResumeChunk]) -> dict[str, Any]:
+    nonce = isolation.new_nonce()
+    block = "\n".join(isolation.wrap_chunk(c.id, c.text, nonce) for c in chunks)
+    user = judge_user(str(requirement["id"]), str(requirement["text"]), block)
+    try:
+        first = generate_json(JUDGE_SYSTEM, user, JUDGE_SCHEMA, temperature=settings.judge_temperature)
+        items = first.get("results", [])
+        raw = next((i for i in items if str(i.get("requirement_id")) == str(requirement["id"])), items[0] if items else None)
+        if raw is None:
+            raise ValueError("empty judge result")
+        return JudgeItem.model_validate(raw).model_dump()
+    except HTTPException:
+        raise
+    except Exception:
+        pass
+    second = generate_json(JUDGE_SYSTEM, user, JUDGE_SCHEMA, temperature=settings.judge_temperature)
+    items = second.get("results", [])
+    raw = next((i for i in items if str(i.get("requirement_id")) == str(requirement["id"])), items[0] if items else None)
+    if raw is None:
+        raise HTTPException(status_code=502, detail="Judge returned no result. Try again.")
+    try:
+        return JudgeItem.model_validate(raw).model_dump()
+    except Exception as e:
+        raise HTTPException(status_code=502, detail="Judge output failed validation. Try again.") from e
+
+
+def evaluate_candidate(db: Session, candidate_id: str, jd_id: str) -> dict[str, Any]:
+    cand = db.get(models.Candidate, candidate_id)
+    jd = db.get(models.JobDescription, jd_id)
+    if cand is None or jd is None:
+        raise HTTPException(status_code=404, detail="Candidate or job not found.")
+    requirements: list[dict[str, Any]] = jd.requirements_structured or []
+    if not requirements:
+        raise HTTPException(status_code=422, detail="Job has no parsed requirements.")
+    verified: list[dict[str, Any]] = []
+    raw_all: list[dict[str, Any]] = []
+    for req in requirements:
+        chunks = retrieve_chunks(db, candidate_id, str(req["text"]))
+        retrieved = {c.id: c for c in chunks}
+        raw = judge_one(req, chunks)
+        raw_all.append(raw)
+        verified.append(verify_item(raw, retrieved))
+    for v in verified:
+        if v["verdict"] == "no_evidence":
+            v["display"] = NO_EVIDENCE_TEXT
+    return {"requirements": requirements, "results": verified, "raw": raw_all}
