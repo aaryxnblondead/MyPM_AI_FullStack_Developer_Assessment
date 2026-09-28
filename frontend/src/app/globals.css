@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --theme-color: #666666;
+  --theme-color-2: #113754;
+  --secondary-color: #666666;
+  --text-color: #666666;
+  --title-color: #111111;
+  --text-font: "Inter", sans-serif;
+  --title-font: "Outfit", sans-serif;
+  --background: #ffffff;
+  --foreground: #141417;
+  --tint: #eff2e6;
+  --mist: #e3e7eb;
+  --border: #e5e5e5;
+  --muted: #808080;
+}
+
+@theme inline {
+  --color-primary: var(--theme-color-2);
+  --color-secondary: var(--secondary-color);
+  --color-accent: var(--theme-color);
+  --color-body: var(--text-color);
+  --color-title: var(--title-color);
+  --color-background: var(--background);
+  --color-surface: var(--background);
+  --color-foreground: var(--foreground);
+  --color-tint: var(--tint);
+  --color-mist: var(--mist);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --font-sans: var(--text-font);
+  --font-display: var(--title-font);
+  --radius-pill: 50px;
+  --radius-card: 10px;
+  --radius-input: 40px;
+  --radius-area: 20px;
+  --spacing-btn-y: 15px;
+  --spacing-btn-x: 40px;
+  --spacing-input: 60px;
+  --spacing-area: 150px;
+  --spacing-field-x: 25px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--text-font);
+  font-size: 16px;
+  line-height: 26px;
+}
