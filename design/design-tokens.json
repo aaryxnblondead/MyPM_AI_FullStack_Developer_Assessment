@@ -1,0 +1,2416 @@
+{
+  "meta": {
+    "files": 36,
+    "source": "design/css/*.css"
+  },
+  "custom_properties": {
+    "--bs-blue": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:9"
+    },
+    "--bs-indigo": {
+      "value": "#6610f2",
+      "ref": "bootstrap.css:10"
+    },
+    "--bs-purple": {
+      "value": "#6f42c1",
+      "ref": "bootstrap.css:11"
+    },
+    "--bs-pink": {
+      "value": "#d63384",
+      "ref": "bootstrap.css:12"
+    },
+    "--bs-red": {
+      "value": "#dc3545",
+      "ref": "bootstrap.css:13"
+    },
+    "--bs-orange": {
+      "value": "#fd7e14",
+      "ref": "bootstrap.css:14"
+    },
+    "--bs-yellow": {
+      "value": "#ffc107",
+      "ref": "bootstrap.css:15"
+    },
+    "--bs-green": {
+      "value": "#198754",
+      "ref": "bootstrap.css:16"
+    },
+    "--bs-teal": {
+      "value": "#20c997",
+      "ref": "bootstrap.css:17"
+    },
+    "--bs-cyan": {
+      "value": "#0dcaf0",
+      "ref": "bootstrap.css:18"
+    },
+    "--bs-black": {
+      "value": "#000",
+      "ref": "bootstrap.css:19"
+    },
+    "--bs-white": {
+      "value": "#fff",
+      "ref": "bootstrap.css:20"
+    },
+    "--bs-gray": {
+      "value": "#6c757d",
+      "ref": "bootstrap.css:21"
+    },
+    "--bs-gray-dark": {
+      "value": "#343a40",
+      "ref": "bootstrap.css:22"
+    },
+    "--bs-gray-100": {
+      "value": "#f8f9fa",
+      "ref": "bootstrap.css:23"
+    },
+    "--bs-gray-200": {
+      "value": "#e9ecef",
+      "ref": "bootstrap.css:24"
+    },
+    "--bs-gray-300": {
+      "value": "#dee2e6",
+      "ref": "bootstrap.css:25"
+    },
+    "--bs-gray-400": {
+      "value": "#ced4da",
+      "ref": "bootstrap.css:26"
+    },
+    "--bs-gray-500": {
+      "value": "#adb5bd",
+      "ref": "bootstrap.css:27"
+    },
+    "--bs-gray-600": {
+      "value": "#6c757d",
+      "ref": "bootstrap.css:28"
+    },
+    "--bs-gray-700": {
+      "value": "#495057",
+      "ref": "bootstrap.css:29"
+    },
+    "--bs-gray-800": {
+      "value": "#343a40",
+      "ref": "bootstrap.css:30"
+    },
+    "--bs-gray-900": {
+      "value": "#212529",
+      "ref": "bootstrap.css:31"
+    },
+    "--bs-primary": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:32"
+    },
+    "--bs-secondary": {
+      "value": "#6c757d",
+      "ref": "bootstrap.css:33"
+    },
+    "--bs-success": {
+      "value": "#198754",
+      "ref": "bootstrap.css:34"
+    },
+    "--bs-info": {
+      "value": "#0dcaf0",
+      "ref": "bootstrap.css:35"
+    },
+    "--bs-warning": {
+      "value": "#ffc107",
+      "ref": "bootstrap.css:36"
+    },
+    "--bs-danger": {
+      "value": "#dc3545",
+      "ref": "bootstrap.css:37"
+    },
+    "--bs-light": {
+      "value": "#f8f9fa",
+      "ref": "bootstrap.css:38"
+    },
+    "--bs-dark": {
+      "value": "#212529",
+      "ref": "bootstrap.css:39"
+    },
+    "--bs-primary-rgb": {
+      "value": "13, 110, 253",
+      "ref": "bootstrap.css:40"
+    },
+    "--bs-secondary-rgb": {
+      "value": "108, 117, 125",
+      "ref": "bootstrap.css:41"
+    },
+    "--bs-success-rgb": {
+      "value": "25, 135, 84",
+      "ref": "bootstrap.css:42"
+    },
+    "--bs-info-rgb": {
+      "value": "13, 202, 240",
+      "ref": "bootstrap.css:43"
+    },
+    "--bs-warning-rgb": {
+      "value": "255, 193, 7",
+      "ref": "bootstrap.css:44"
+    },
+    "--bs-danger-rgb": {
+      "value": "220, 53, 69",
+      "ref": "bootstrap.css:45"
+    },
+    "--bs-light-rgb": {
+      "value": "248, 249, 250",
+      "ref": "bootstrap.css:46"
+    },
+    "--bs-dark-rgb": {
+      "value": "33, 37, 41",
+      "ref": "bootstrap.css:47"
+    },
+    "--bs-white-rgb": {
+      "value": "255, 255, 255",
+      "ref": "bootstrap.css:48"
+    },
+    "--bs-black-rgb": {
+      "value": "0, 0, 0",
+      "ref": "bootstrap.css:49"
+    },
+    "--bs-body-color-rgb": {
+      "value": "33, 37, 41",
+      "ref": "bootstrap.css:50"
+    },
+    "--bs-body-bg-rgb": {
+      "value": "255, 255, 255",
+      "ref": "bootstrap.css:51"
+    },
+    "--bs-font-sans-serif": {
+      "value": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", \"Liberation Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "ref": "bootstrap.css:52"
+    },
+    "--bs-font-monospace": {
+      "value": "SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+      "ref": "bootstrap.css:53"
+    },
+    "--bs-gradient": {
+      "value": "none",
+      "ref": "bootstrap.css:3142"
+    },
+    "--bs-body-font-family": {
+      "value": "var(--bs-font-sans-serif)",
+      "ref": "bootstrap.css:55"
+    },
+    "--bs-body-font-size": {
+      "value": "1rem",
+      "ref": "bootstrap.css:56"
+    },
+    "--bs-body-font-weight": {
+      "value": "400",
+      "ref": "bootstrap.css:57"
+    },
+    "--bs-body-line-height": {
+      "value": "1.5",
+      "ref": "bootstrap.css:58"
+    },
+    "--bs-body-color": {
+      "value": "#212529",
+      "ref": "bootstrap.css:59"
+    },
+    "--bs-body-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:60"
+    },
+    "--bs-border-width": {
+      "value": "5px",
+      "ref": "bootstrap.css:7315"
+    },
+    "--bs-border-style": {
+      "value": "solid",
+      "ref": "bootstrap.css:62"
+    },
+    "--bs-border-color": {
+      "value": "#dee2e6",
+      "ref": "bootstrap.css:63"
+    },
+    "--bs-border-color-translucent": {
+      "value": "rgba(0, 0, 0, 0.175)",
+      "ref": "bootstrap.css:64"
+    },
+    "--bs-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:65"
+    },
+    "--bs-border-radius-sm": {
+      "value": "0.25rem",
+      "ref": "bootstrap.css:66"
+    },
+    "--bs-border-radius-lg": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:67"
+    },
+    "--bs-border-radius-xl": {
+      "value": "1rem",
+      "ref": "bootstrap.css:68"
+    },
+    "--bs-border-radius-2xl": {
+      "value": "2rem",
+      "ref": "bootstrap.css:69"
+    },
+    "--bs-border-radius-pill": {
+      "value": "50rem",
+      "ref": "bootstrap.css:70"
+    },
+    "--bs-link-color": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:71"
+    },
+    "--bs-link-hover-color": {
+      "value": "#0a58ca",
+      "ref": "bootstrap.css:72"
+    },
+    "--bs-code-color": {
+      "value": "#d63384",
+      "ref": "bootstrap.css:73"
+    },
+    "--bs-highlight-bg": {
+      "value": "#fff3cd",
+      "ref": "bootstrap.css:74"
+    },
+    "--bs-gutter-x": {
+      "value": "30px",
+      "ref": "style.css:377"
+    },
+    "--bs-gutter-y": {
+      "value": "3rem",
+      "ref": "bootstrap.css:1737"
+    },
+    "--bs-table-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:1915"
+    },
+    "--bs-table-bg": {
+      "value": "#212529",
+      "ref": "bootstrap.css:1916"
+    },
+    "--bs-table-border-color": {
+      "value": "#373b3e",
+      "ref": "bootstrap.css:1917"
+    },
+    "--bs-table-accent-bg": {
+      "value": "var(--bs-table-hover-bg)",
+      "ref": "bootstrap.css:1812"
+    },
+    "--bs-table-striped-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:1919"
+    },
+    "--bs-table-striped-bg": {
+      "value": "#2c3034",
+      "ref": "bootstrap.css:1918"
+    },
+    "--bs-table-active-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:1921"
+    },
+    "--bs-table-active-bg": {
+      "value": "#373b3e",
+      "ref": "bootstrap.css:1920"
+    },
+    "--bs-table-hover-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:1923"
+    },
+    "--bs-table-hover-bg": {
+      "value": "#323539",
+      "ref": "bootstrap.css:1922"
+    },
+    "--bs-btn-padding-x": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:3176"
+    },
+    "--bs-btn-padding-y": {
+      "value": "0.25rem",
+      "ref": "bootstrap.css:3175"
+    },
+    "--bs-btn-font-family": {
+      "value": "",
+      "ref": "bootstrap.css:2809"
+    },
+    "--bs-btn-font-size": {
+      "value": "0.875rem",
+      "ref": "bootstrap.css:3177"
+    },
+    "--bs-btn-font-weight": {
+      "value": "400",
+      "ref": "bootstrap.css:3146"
+    },
+    "--bs-btn-line-height": {
+      "value": "1.5",
+      "ref": "bootstrap.css:2812"
+    },
+    "--bs-btn-color": {
+      "value": "var(--bs-link-color)",
+      "ref": "bootstrap.css:3147"
+    },
+    "--bs-btn-bg": {
+      "value": "transparent",
+      "ref": "bootstrap.css:3148"
+    },
+    "--bs-btn-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:2815"
+    },
+    "--bs-btn-border-color": {
+      "value": "transparent",
+      "ref": "bootstrap.css:3149"
+    },
+    "--bs-btn-border-radius": {
+      "value": "0.25rem",
+      "ref": "bootstrap.css:3178"
+    },
+    "--bs-btn-box-shadow": {
+      "value": "none",
+      "ref": "bootstrap.css:3156"
+    },
+    "--bs-btn-disabled-opacity": {
+      "value": "0.65",
+      "ref": "bootstrap.css:2819"
+    },
+    "--bs-btn-focus-box-shadow": {
+      "value": "0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5)",
+      "ref": "bootstrap.css:2820"
+    },
+    "--bs-btn-hover-color": {
+      "value": "var(--bs-link-hover-color)",
+      "ref": "bootstrap.css:3150"
+    },
+    "--bs-btn-hover-bg": {
+      "value": "#212529",
+      "ref": "bootstrap.css:3132"
+    },
+    "--bs-btn-hover-border-color": {
+      "value": "transparent",
+      "ref": "bootstrap.css:3151"
+    },
+    "--bs-btn-focus-shadow-rgb": {
+      "value": "49, 132, 253",
+      "ref": "bootstrap.css:3157"
+    },
+    "--bs-btn-active-color": {
+      "value": "var(--bs-link-hover-color)",
+      "ref": "bootstrap.css:3152"
+    },
+    "--bs-btn-active-bg": {
+      "value": "#212529",
+      "ref": "bootstrap.css:3136"
+    },
+    "--bs-btn-active-border-color": {
+      "value": "transparent",
+      "ref": "bootstrap.css:3153"
+    },
+    "--bs-btn-active-shadow": {
+      "value": "inset 0 3px 5px rgba(0, 0, 0, 0.125)",
+      "ref": "bootstrap.css:3138"
+    },
+    "--bs-btn-disabled-color": {
+      "value": "#6c757d",
+      "ref": "bootstrap.css:3154"
+    },
+    "--bs-btn-disabled-bg": {
+      "value": "transparent",
+      "ref": "bootstrap.css:3140"
+    },
+    "--bs-btn-disabled-border-color": {
+      "value": "transparent",
+      "ref": "bootstrap.css:3155"
+    },
+    "--bs-dropdown-min-width": {
+      "value": "10rem",
+      "ref": "bootstrap.css:3245"
+    },
+    "--bs-dropdown-padding-x": {
+      "value": "0",
+      "ref": "bootstrap.css:3246"
+    },
+    "--bs-dropdown-padding-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:3247"
+    },
+    "--bs-dropdown-spacer": {
+      "value": "0.125rem",
+      "ref": "bootstrap.css:3248"
+    },
+    "--bs-dropdown-font-size": {
+      "value": "1rem",
+      "ref": "bootstrap.css:3249"
+    },
+    "--bs-dropdown-color": {
+      "value": "#dee2e6",
+      "ref": "bootstrap.css:3519"
+    },
+    "--bs-dropdown-bg": {
+      "value": "#343a40",
+      "ref": "bootstrap.css:3520"
+    },
+    "--bs-dropdown-border-color": {
+      "value": "var(--bs-border-color-translucent)",
+      "ref": "bootstrap.css:3521"
+    },
+    "--bs-dropdown-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:3253"
+    },
+    "--bs-dropdown-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:3254"
+    },
+    "--bs-dropdown-inner-border-radius": {
+      "value": "calc(0.375rem - 1px)",
+      "ref": "bootstrap.css:3255"
+    },
+    "--bs-dropdown-divider-bg": {
+      "value": "var(--bs-border-color-translucent)",
+      "ref": "bootstrap.css:3525"
+    },
+    "--bs-dropdown-divider-margin-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:3257"
+    },
+    "--bs-dropdown-box-shadow": {
+      "value": "",
+      "ref": "bootstrap.css:3522"
+    },
+    "--bs-dropdown-link-color": {
+      "value": "#dee2e6",
+      "ref": "bootstrap.css:3523"
+    },
+    "--bs-dropdown-link-hover-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:3524"
+    },
+    "--bs-dropdown-link-hover-bg": {
+      "value": "rgba(255, 255, 255, 0.15)",
+      "ref": "bootstrap.css:3526"
+    },
+    "--bs-dropdown-link-active-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:3527"
+    },
+    "--bs-dropdown-link-active-bg": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:3528"
+    },
+    "--bs-dropdown-link-disabled-color": {
+      "value": "#adb5bd",
+      "ref": "bootstrap.css:3529"
+    },
+    "--bs-dropdown-item-padding-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:3265"
+    },
+    "--bs-dropdown-item-padding-y": {
+      "value": "0.25rem",
+      "ref": "bootstrap.css:3266"
+    },
+    "--bs-dropdown-header-color": {
+      "value": "#adb5bd",
+      "ref": "bootstrap.css:3530"
+    },
+    "--bs-dropdown-header-padding-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:3268"
+    },
+    "--bs-dropdown-header-padding-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:3269"
+    },
+    "--bs-position": {
+      "value": "end",
+      "ref": "bootstrap.css:3380"
+    },
+    "--bs-nav-link-padding-x": {
+      "value": "0",
+      "ref": "bootstrap.css:3808"
+    },
+    "--bs-nav-link-padding-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:3809"
+    },
+    "--bs-nav-link-font-weight": {
+      "value": "",
+      "ref": "bootstrap.css:3810"
+    },
+    "--bs-nav-link-color": {
+      "value": "var(--bs-navbar-color)",
+      "ref": "bootstrap.css:3811"
+    },
+    "--bs-nav-link-hover-color": {
+      "value": "var(--bs-navbar-hover-color)",
+      "ref": "bootstrap.css:3812"
+    },
+    "--bs-nav-link-disabled-color": {
+      "value": "var(--bs-navbar-disabled-color)",
+      "ref": "bootstrap.css:3813"
+    },
+    "--bs-nav-tabs-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:3671"
+    },
+    "--bs-nav-tabs-border-color": {
+      "value": "#dee2e6",
+      "ref": "bootstrap.css:3672"
+    },
+    "--bs-nav-tabs-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:3673"
+    },
+    "--bs-nav-tabs-link-hover-border-color": {
+      "value": "#e9ecef #e9ecef #dee2e6",
+      "ref": "bootstrap.css:3674"
+    },
+    "--bs-nav-tabs-link-active-color": {
+      "value": "#495057",
+      "ref": "bootstrap.css:3675"
+    },
+    "--bs-nav-tabs-link-active-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:3676"
+    },
+    "--bs-nav-tabs-link-active-border-color": {
+      "value": "#dee2e6 #dee2e6 #fff",
+      "ref": "bootstrap.css:3677"
+    },
+    "--bs-nav-pills-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:3709"
+    },
+    "--bs-nav-pills-link-active-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:3710"
+    },
+    "--bs-nav-pills-link-active-bg": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:3711"
+    },
+    "--bs-navbar-padding-x": {
+      "value": "0",
+      "ref": "bootstrap.css:3755"
+    },
+    "--bs-navbar-padding-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:3756"
+    },
+    "--bs-navbar-color": {
+      "value": "rgba(255, 255, 255, 0.55)",
+      "ref": "bootstrap.css:4167"
+    },
+    "--bs-navbar-hover-color": {
+      "value": "rgba(255, 255, 255, 0.75)",
+      "ref": "bootstrap.css:4168"
+    },
+    "--bs-navbar-disabled-color": {
+      "value": "rgba(255, 255, 255, 0.25)",
+      "ref": "bootstrap.css:4169"
+    },
+    "--bs-navbar-active-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4170"
+    },
+    "--bs-navbar-brand-padding-y": {
+      "value": "0.3125rem",
+      "ref": "bootstrap.css:3761"
+    },
+    "--bs-navbar-brand-margin-end": {
+      "value": "1rem",
+      "ref": "bootstrap.css:3762"
+    },
+    "--bs-navbar-brand-font-size": {
+      "value": "1.25rem",
+      "ref": "bootstrap.css:3763"
+    },
+    "--bs-navbar-brand-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4171"
+    },
+    "--bs-navbar-brand-hover-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4172"
+    },
+    "--bs-navbar-nav-link-padding-x": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:3766"
+    },
+    "--bs-navbar-toggler-padding-y": {
+      "value": "0.25rem",
+      "ref": "bootstrap.css:3767"
+    },
+    "--bs-navbar-toggler-padding-x": {
+      "value": "0.75rem",
+      "ref": "bootstrap.css:3768"
+    },
+    "--bs-navbar-toggler-font-size": {
+      "value": "1.25rem",
+      "ref": "bootstrap.css:3769"
+    },
+    "--bs-navbar-toggler-icon-bg": {
+      "value": "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")",
+      "ref": "bootstrap.css:4174"
+    },
+    "--bs-navbar-toggler-border-color": {
+      "value": "rgba(255, 255, 255, 0.1)",
+      "ref": "bootstrap.css:4173"
+    },
+    "--bs-navbar-toggler-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:3772"
+    },
+    "--bs-navbar-toggler-focus-width": {
+      "value": "0.25rem",
+      "ref": "bootstrap.css:3773"
+    },
+    "--bs-navbar-toggler-transition": {
+      "value": "box-shadow 0.15s ease-in-out",
+      "ref": "bootstrap.css:3774"
+    },
+    "--bs-card-spacer-y": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4178"
+    },
+    "--bs-card-spacer-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4179"
+    },
+    "--bs-card-title-spacer-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:4180"
+    },
+    "--bs-card-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:4181"
+    },
+    "--bs-card-border-color": {
+      "value": "var(--bs-border-color-translucent)",
+      "ref": "bootstrap.css:4182"
+    },
+    "--bs-card-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:4183"
+    },
+    "--bs-card-box-shadow": {
+      "value": "",
+      "ref": "bootstrap.css:4184"
+    },
+    "--bs-card-inner-border-radius": {
+      "value": "calc(0.375rem - 1px)",
+      "ref": "bootstrap.css:4185"
+    },
+    "--bs-card-cap-padding-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:4186"
+    },
+    "--bs-card-cap-padding-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4187"
+    },
+    "--bs-card-cap-bg": {
+      "value": "rgba(0, 0, 0, 0.03)",
+      "ref": "bootstrap.css:4188"
+    },
+    "--bs-card-cap-color": {
+      "value": "",
+      "ref": "bootstrap.css:4189"
+    },
+    "--bs-card-height": {
+      "value": "",
+      "ref": "bootstrap.css:4190"
+    },
+    "--bs-card-color": {
+      "value": "",
+      "ref": "bootstrap.css:4191"
+    },
+    "--bs-card-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4192"
+    },
+    "--bs-card-img-overlay-padding": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4193"
+    },
+    "--bs-card-group-margin": {
+      "value": "0.75rem",
+      "ref": "bootstrap.css:4194"
+    },
+    "--bs-accordion-color": {
+      "value": "#000",
+      "ref": "bootstrap.css:4360"
+    },
+    "--bs-accordion-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4361"
+    },
+    "--bs-accordion-transition": {
+      "value": "color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease",
+      "ref": "bootstrap.css:4362"
+    },
+    "--bs-accordion-border-color": {
+      "value": "var(--bs-border-color)",
+      "ref": "bootstrap.css:4363"
+    },
+    "--bs-accordion-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:4364"
+    },
+    "--bs-accordion-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:4365"
+    },
+    "--bs-accordion-inner-border-radius": {
+      "value": "calc(0.375rem - 1px)",
+      "ref": "bootstrap.css:4366"
+    },
+    "--bs-accordion-btn-padding-x": {
+      "value": "1.25rem",
+      "ref": "bootstrap.css:4367"
+    },
+    "--bs-accordion-btn-padding-y": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4368"
+    },
+    "--bs-accordion-btn-color": {
+      "value": "var(--bs-body-color)",
+      "ref": "bootstrap.css:4369"
+    },
+    "--bs-accordion-btn-bg": {
+      "value": "var(--bs-accordion-bg)",
+      "ref": "bootstrap.css:4370"
+    },
+    "--bs-accordion-btn-icon": {
+      "value": "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='var%28--bs-body-color%29'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e\")",
+      "ref": "bootstrap.css:4371"
+    },
+    "--bs-accordion-btn-icon-width": {
+      "value": "1.25rem",
+      "ref": "bootstrap.css:4372"
+    },
+    "--bs-accordion-btn-icon-transform": {
+      "value": "rotate(-180deg)",
+      "ref": "bootstrap.css:4373"
+    },
+    "--bs-accordion-btn-icon-transition": {
+      "value": "transform 0.2s ease-in-out",
+      "ref": "bootstrap.css:4374"
+    },
+    "--bs-accordion-btn-active-icon": {
+      "value": "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e\")",
+      "ref": "bootstrap.css:4375"
+    },
+    "--bs-accordion-btn-focus-border-color": {
+      "value": "#86b7fe",
+      "ref": "bootstrap.css:4376"
+    },
+    "--bs-accordion-btn-focus-box-shadow": {
+      "value": "0 0 0 0.25rem rgba(13, 110, 253, 0.25)",
+      "ref": "bootstrap.css:4377"
+    },
+    "--bs-accordion-body-padding-x": {
+      "value": "1.25rem",
+      "ref": "bootstrap.css:4378"
+    },
+    "--bs-accordion-body-padding-y": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4379"
+    },
+    "--bs-accordion-active-color": {
+      "value": "#0c63e4",
+      "ref": "bootstrap.css:4380"
+    },
+    "--bs-accordion-active-bg": {
+      "value": "#e7f1ff",
+      "ref": "bootstrap.css:4381"
+    },
+    "--bs-breadcrumb-padding-x": {
+      "value": "0",
+      "ref": "bootstrap.css:4495"
+    },
+    "--bs-breadcrumb-padding-y": {
+      "value": "0",
+      "ref": "bootstrap.css:4496"
+    },
+    "--bs-breadcrumb-margin-bottom": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4497"
+    },
+    "--bs-breadcrumb-bg": {
+      "value": "",
+      "ref": "bootstrap.css:4498"
+    },
+    "--bs-breadcrumb-border-radius": {
+      "value": "",
+      "ref": "bootstrap.css:4499"
+    },
+    "--bs-breadcrumb-divider-color": {
+      "value": "#6c757d",
+      "ref": "bootstrap.css:4500"
+    },
+    "--bs-breadcrumb-item-padding-x": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:4501"
+    },
+    "--bs-breadcrumb-item-active-color": {
+      "value": "#6c757d",
+      "ref": "bootstrap.css:4502"
+    },
+    "--bs-pagination-padding-x": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:4614"
+    },
+    "--bs-pagination-padding-y": {
+      "value": "0.25rem",
+      "ref": "bootstrap.css:4615"
+    },
+    "--bs-pagination-font-size": {
+      "value": "0.875rem",
+      "ref": "bootstrap.css:4616"
+    },
+    "--bs-pagination-color": {
+      "value": "var(--bs-link-color)",
+      "ref": "bootstrap.css:4530"
+    },
+    "--bs-pagination-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4531"
+    },
+    "--bs-pagination-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:4532"
+    },
+    "--bs-pagination-border-color": {
+      "value": "#dee2e6",
+      "ref": "bootstrap.css:4533"
+    },
+    "--bs-pagination-border-radius": {
+      "value": "0.25rem",
+      "ref": "bootstrap.css:4617"
+    },
+    "--bs-pagination-hover-color": {
+      "value": "var(--bs-link-hover-color)",
+      "ref": "bootstrap.css:4535"
+    },
+    "--bs-pagination-hover-bg": {
+      "value": "#e9ecef",
+      "ref": "bootstrap.css:4536"
+    },
+    "--bs-pagination-hover-border-color": {
+      "value": "#dee2e6",
+      "ref": "bootstrap.css:4537"
+    },
+    "--bs-pagination-focus-color": {
+      "value": "var(--bs-link-hover-color)",
+      "ref": "bootstrap.css:4538"
+    },
+    "--bs-pagination-focus-bg": {
+      "value": "#e9ecef",
+      "ref": "bootstrap.css:4539"
+    },
+    "--bs-pagination-focus-box-shadow": {
+      "value": "0 0 0 0.25rem rgba(13, 110, 253, 0.25)",
+      "ref": "bootstrap.css:4540"
+    },
+    "--bs-pagination-active-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4541"
+    },
+    "--bs-pagination-active-bg": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:4542"
+    },
+    "--bs-pagination-active-border-color": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:4543"
+    },
+    "--bs-pagination-disabled-color": {
+      "value": "#6c757d",
+      "ref": "bootstrap.css:4544"
+    },
+    "--bs-pagination-disabled-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4545"
+    },
+    "--bs-pagination-disabled-border-color": {
+      "value": "#dee2e6",
+      "ref": "bootstrap.css:4546"
+    },
+    "--bs-badge-padding-x": {
+      "value": "0.65em",
+      "ref": "bootstrap.css:4621"
+    },
+    "--bs-badge-padding-y": {
+      "value": "0.35em",
+      "ref": "bootstrap.css:4622"
+    },
+    "--bs-badge-font-size": {
+      "value": "0.75em",
+      "ref": "bootstrap.css:4623"
+    },
+    "--bs-badge-font-weight": {
+      "value": "700",
+      "ref": "bootstrap.css:4624"
+    },
+    "--bs-badge-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4625"
+    },
+    "--bs-badge-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:4626"
+    },
+    "--bs-alert-bg": {
+      "value": "#d3d3d4",
+      "ref": "bootstrap.css:4749"
+    },
+    "--bs-alert-padding-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4649"
+    },
+    "--bs-alert-padding-y": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4650"
+    },
+    "--bs-alert-margin-bottom": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4651"
+    },
+    "--bs-alert-color": {
+      "value": "#141619",
+      "ref": "bootstrap.css:4748"
+    },
+    "--bs-alert-border-color": {
+      "value": "#bcbebf",
+      "ref": "bootstrap.css:4750"
+    },
+    "--bs-alert-border": {
+      "value": "1px solid var(--bs-alert-border-color)",
+      "ref": "bootstrap.css:4654"
+    },
+    "--bs-alert-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:4655"
+    },
+    "--bs-progress-height": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4768"
+    },
+    "--bs-progress-font-size": {
+      "value": "0.75rem",
+      "ref": "bootstrap.css:4769"
+    },
+    "--bs-progress-bg": {
+      "value": "#e9ecef",
+      "ref": "bootstrap.css:4770"
+    },
+    "--bs-progress-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:4771"
+    },
+    "--bs-progress-box-shadow": {
+      "value": "inset 0 1px 2px rgba(0, 0, 0, 0.075)",
+      "ref": "bootstrap.css:4772"
+    },
+    "--bs-progress-bar-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4773"
+    },
+    "--bs-progress-bar-bg": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:4774"
+    },
+    "--bs-progress-bar-transition": {
+      "value": "width 0.6s ease",
+      "ref": "bootstrap.css:4775"
+    },
+    "--bs-list-group-color": {
+      "value": "#212529",
+      "ref": "bootstrap.css:4818"
+    },
+    "--bs-list-group-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4819"
+    },
+    "--bs-list-group-border-color": {
+      "value": "rgba(0, 0, 0, 0.125)",
+      "ref": "bootstrap.css:4820"
+    },
+    "--bs-list-group-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:4821"
+    },
+    "--bs-list-group-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:4822"
+    },
+    "--bs-list-group-item-padding-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:4823"
+    },
+    "--bs-list-group-item-padding-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:4824"
+    },
+    "--bs-list-group-action-color": {
+      "value": "#495057",
+      "ref": "bootstrap.css:4825"
+    },
+    "--bs-list-group-action-hover-color": {
+      "value": "#495057",
+      "ref": "bootstrap.css:4826"
+    },
+    "--bs-list-group-action-hover-bg": {
+      "value": "#f8f9fa",
+      "ref": "bootstrap.css:4827"
+    },
+    "--bs-list-group-action-active-color": {
+      "value": "#212529",
+      "ref": "bootstrap.css:4828"
+    },
+    "--bs-list-group-action-active-bg": {
+      "value": "#e9ecef",
+      "ref": "bootstrap.css:4829"
+    },
+    "--bs-list-group-disabled-color": {
+      "value": "#6c757d",
+      "ref": "bootstrap.css:4830"
+    },
+    "--bs-list-group-disabled-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4831"
+    },
+    "--bs-list-group-active-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:4832"
+    },
+    "--bs-list-group-active-bg": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:4833"
+    },
+    "--bs-list-group-active-border-color": {
+      "value": "#0d6efd",
+      "ref": "bootstrap.css:4834"
+    },
+    "--bs-toast-padding-x": {
+      "value": "0.75rem",
+      "ref": "bootstrap.css:5202"
+    },
+    "--bs-toast-padding-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:5203"
+    },
+    "--bs-toast-spacing": {
+      "value": "1.5rem",
+      "ref": "bootstrap.css:5204"
+    },
+    "--bs-toast-max-width": {
+      "value": "350px",
+      "ref": "bootstrap.css:5205"
+    },
+    "--bs-toast-font-size": {
+      "value": "0.875rem",
+      "ref": "bootstrap.css:5206"
+    },
+    "--bs-toast-color": {
+      "value": "",
+      "ref": "bootstrap.css:5207"
+    },
+    "--bs-toast-bg": {
+      "value": "rgba(255, 255, 255, 0.85)",
+      "ref": "bootstrap.css:5208"
+    },
+    "--bs-toast-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:5209"
+    },
+    "--bs-toast-border-color": {
+      "value": "var(--bs-border-color-translucent)",
+      "ref": "bootstrap.css:5210"
+    },
+    "--bs-toast-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:5211"
+    },
+    "--bs-toast-box-shadow": {
+      "value": "0 0.5rem 1rem rgba(0, 0, 0, 0.15)",
+      "ref": "bootstrap.css:5212"
+    },
+    "--bs-toast-header-color": {
+      "value": "#6c757d",
+      "ref": "bootstrap.css:5213"
+    },
+    "--bs-toast-header-bg": {
+      "value": "rgba(255, 255, 255, 0.85)",
+      "ref": "bootstrap.css:5214"
+    },
+    "--bs-toast-header-border-color": {
+      "value": "rgba(0, 0, 0, 0.05)",
+      "ref": "bootstrap.css:5215"
+    },
+    "--bs-modal-zindex": {
+      "value": "1055",
+      "ref": "bootstrap.css:5269"
+    },
+    "--bs-modal-width": {
+      "value": "1140px",
+      "ref": "bootstrap.css:5438"
+    },
+    "--bs-modal-padding": {
+      "value": "1rem",
+      "ref": "bootstrap.css:5271"
+    },
+    "--bs-modal-margin": {
+      "value": "1.75rem",
+      "ref": "bootstrap.css:5418"
+    },
+    "--bs-modal-color": {
+      "value": "",
+      "ref": "bootstrap.css:5273"
+    },
+    "--bs-modal-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:5274"
+    },
+    "--bs-modal-border-color": {
+      "value": "var(--bs-border-color-translucent)",
+      "ref": "bootstrap.css:5275"
+    },
+    "--bs-modal-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:5276"
+    },
+    "--bs-modal-border-radius": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:5277"
+    },
+    "--bs-modal-box-shadow": {
+      "value": "0 0.5rem 1rem rgba(0, 0, 0, 0.15)",
+      "ref": "bootstrap.css:5419"
+    },
+    "--bs-modal-inner-border-radius": {
+      "value": "calc(0.5rem - 1px)",
+      "ref": "bootstrap.css:5279"
+    },
+    "--bs-modal-header-padding-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:5280"
+    },
+    "--bs-modal-header-padding-y": {
+      "value": "1rem",
+      "ref": "bootstrap.css:5281"
+    },
+    "--bs-modal-header-padding": {
+      "value": "1rem 1rem",
+      "ref": "bootstrap.css:5282"
+    },
+    "--bs-modal-header-border-color": {
+      "value": "var(--bs-border-color)",
+      "ref": "bootstrap.css:5283"
+    },
+    "--bs-modal-header-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:5284"
+    },
+    "--bs-modal-title-line-height": {
+      "value": "1.5",
+      "ref": "bootstrap.css:5285"
+    },
+    "--bs-modal-footer-gap": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:5286"
+    },
+    "--bs-modal-footer-bg": {
+      "value": "",
+      "ref": "bootstrap.css:5287"
+    },
+    "--bs-modal-footer-border-color": {
+      "value": "var(--bs-border-color)",
+      "ref": "bootstrap.css:5288"
+    },
+    "--bs-modal-footer-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:5289"
+    },
+    "--bs-backdrop-zindex": {
+      "value": "1050",
+      "ref": "bootstrap.css:5356"
+    },
+    "--bs-backdrop-bg": {
+      "value": "#000",
+      "ref": "bootstrap.css:5357"
+    },
+    "--bs-backdrop-opacity": {
+      "value": "0.5",
+      "ref": "bootstrap.css:5358"
+    },
+    "--bs-tooltip-zindex": {
+      "value": "1080",
+      "ref": "bootstrap.css:5561"
+    },
+    "--bs-tooltip-max-width": {
+      "value": "200px",
+      "ref": "bootstrap.css:5562"
+    },
+    "--bs-tooltip-padding-x": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:5563"
+    },
+    "--bs-tooltip-padding-y": {
+      "value": "0.25rem",
+      "ref": "bootstrap.css:5564"
+    },
+    "--bs-tooltip-margin": {
+      "value": "",
+      "ref": "bootstrap.css:5565"
+    },
+    "--bs-tooltip-font-size": {
+      "value": "0.875rem",
+      "ref": "bootstrap.css:5566"
+    },
+    "--bs-tooltip-color": {
+      "value": "#fff",
+      "ref": "bootstrap.css:5567"
+    },
+    "--bs-tooltip-bg": {
+      "value": "#000",
+      "ref": "bootstrap.css:5568"
+    },
+    "--bs-tooltip-border-radius": {
+      "value": "0.375rem",
+      "ref": "bootstrap.css:5569"
+    },
+    "--bs-tooltip-opacity": {
+      "value": "0.9",
+      "ref": "bootstrap.css:5570"
+    },
+    "--bs-tooltip-arrow-width": {
+      "value": "0.8rem",
+      "ref": "bootstrap.css:5571"
+    },
+    "--bs-tooltip-arrow-height": {
+      "value": "0.4rem",
+      "ref": "bootstrap.css:5572"
+    },
+    "--bs-popover-zindex": {
+      "value": "1070",
+      "ref": "bootstrap.css:5664"
+    },
+    "--bs-popover-max-width": {
+      "value": "276px",
+      "ref": "bootstrap.css:5665"
+    },
+    "--bs-popover-font-size": {
+      "value": "0.875rem",
+      "ref": "bootstrap.css:5666"
+    },
+    "--bs-popover-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:5667"
+    },
+    "--bs-popover-border-width": {
+      "value": "1px",
+      "ref": "bootstrap.css:5668"
+    },
+    "--bs-popover-border-color": {
+      "value": "var(--bs-border-color-translucent)",
+      "ref": "bootstrap.css:5669"
+    },
+    "--bs-popover-border-radius": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:5670"
+    },
+    "--bs-popover-inner-border-radius": {
+      "value": "calc(0.5rem - 1px)",
+      "ref": "bootstrap.css:5671"
+    },
+    "--bs-popover-box-shadow": {
+      "value": "0 0.5rem 1rem rgba(0, 0, 0, 0.15)",
+      "ref": "bootstrap.css:5672"
+    },
+    "--bs-popover-header-padding-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:5673"
+    },
+    "--bs-popover-header-padding-y": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:5674"
+    },
+    "--bs-popover-header-font-size": {
+      "value": "1rem",
+      "ref": "bootstrap.css:5675"
+    },
+    "--bs-popover-header-color": {
+      "value": "var(--bs-heading-color)",
+      "ref": "bootstrap.css:5676"
+    },
+    "--bs-popover-header-bg": {
+      "value": "#f0f0f0",
+      "ref": "bootstrap.css:5677"
+    },
+    "--bs-popover-body-padding-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:5678"
+    },
+    "--bs-popover-body-padding-y": {
+      "value": "1rem",
+      "ref": "bootstrap.css:5679"
+    },
+    "--bs-popover-body-color": {
+      "value": "#212529",
+      "ref": "bootstrap.css:5680"
+    },
+    "--bs-popover-arrow-width": {
+      "value": "1rem",
+      "ref": "bootstrap.css:5681"
+    },
+    "--bs-popover-arrow-height": {
+      "value": "0.5rem",
+      "ref": "bootstrap.css:5682"
+    },
+    "--bs-popover-arrow-border": {
+      "value": "var(--bs-popover-border-color)",
+      "ref": "bootstrap.css:5683"
+    },
+    "--bs-spinner-width": {
+      "value": "1rem",
+      "ref": "bootstrap.css:6095"
+    },
+    "--bs-spinner-height": {
+      "value": "1rem",
+      "ref": "bootstrap.css:6096"
+    },
+    "--bs-spinner-vertical-align": {
+      "value": "-0.125em",
+      "ref": "bootstrap.css:6087"
+    },
+    "--bs-spinner-border-width": {
+      "value": "0.2em",
+      "ref": "bootstrap.css:6062"
+    },
+    "--bs-spinner-animation-speed": {
+      "value": "1.5s",
+      "ref": "bootstrap.css:6102"
+    },
+    "--bs-spinner-animation-name": {
+      "value": "spinner-grow",
+      "ref": "bootstrap.css:6089"
+    },
+    "--bs-offcanvas-width": {
+      "value": "400px",
+      "ref": "bootstrap.css:6106"
+    },
+    "--bs-offcanvas-height": {
+      "value": "auto",
+      "ref": "bootstrap.css:6541"
+    },
+    "--bs-offcanvas-padding-x": {
+      "value": "1rem",
+      "ref": "bootstrap.css:6108"
+    },
+    "--bs-offcanvas-padding-y": {
+      "value": "1rem",
+      "ref": "bootstrap.css:6109"
+    },
+    "--bs-offcanvas-color": {
+      "value": "",
+      "ref": "bootstrap.css:6110"
+    },
+    "--bs-offcanvas-bg": {
+      "value": "#fff",
+      "ref": "bootstrap.css:6111"
+    },
+    "--bs-offcanvas-border-width": {
+      "value": "0",
+      "ref": "bootstrap.css:6542"
+    },
+    "--bs-offcanvas-border-color": {
+      "value": "var(--bs-border-color-translucent)",
+      "ref": "bootstrap.css:6113"
+    },
+    "--bs-offcanvas-box-shadow": {
+      "value": "0 0.125rem 0.25rem rgba(0, 0, 0, 0.075)",
+      "ref": "bootstrap.css:6114"
+    },
+    "--bs-aspect-ratio": {
+      "value": "42.8571428571%",
+      "ref": "bootstrap.css:6849"
+    },
+    "--bs-border-opacity": {
+      "value": "1",
+      "ref": "bootstrap.css:7335"
+    },
+    "--bs-text-opacity": {
+      "value": "1",
+      "ref": "bootstrap.css:8203"
+    },
+    "--bs-bg-opacity": {
+      "value": "1",
+      "ref": "bootstrap.css:8283"
+    },
+    "--image": {
+      "value": "before{display:none}.fancybox-slide--video .fancybox-content,.fancybox-slide--video iframe{background:#000}.fancybox-slide--map .fancybox-content,.fancybox-slide--map iframe{background:#e5e3df}.fancybox-slide--next{z-index:99995}.fancybox-slide>*{display:inline-block",
+      "ref": "jquery.fancybox.min.css:1"
+    },
+    "--fb": {
+      "value": "hover{background:#344e86}.fancybox-share__button--pt{background:#bd081d}.fancybox-share__button--pt:hover{background:#aa0719}.fancybox-share__button--tw{background:#1da1f2}.fancybox-share__button--tw:hover{background:#0d95e8}.fancybox-share__button svg{position:relative",
+      "ref": "jquery.fancybox.min.css:1"
+    },
+    "--theme-color": {
+      "value": "#666666",
+      "ref": "style.css:72"
+    },
+    "--theme-color-2": {
+      "value": "#113754",
+      "ref": "style.css:73"
+    },
+    "--secondary-color": {
+      "value": "#666666",
+      "ref": "style.css:74"
+    },
+    "--text-color": {
+      "value": "#666666",
+      "ref": "style.css:75"
+    },
+    "--title-color": {
+      "value": "#111111",
+      "ref": "style.css:76"
+    },
+    "--text-font": {
+      "value": "\"Inter\", sans-serif",
+      "ref": "style.css:77"
+    },
+    "--title-font": {
+      "value": "\"Outfit\", sans-serif",
+      "ref": "style.css:78"
+    }
+  },
+  "colors_by_frequency": [
+    {
+      "hex": "#ffffff",
+      "count": 253,
+      "refs": [
+        "about.css:31",
+        "about.css:40",
+        "about.css:111",
+        "about.css:145",
+        "about.css:149",
+        "about.css:154"
+      ]
+    },
+    {
+      "hex": "#000000",
+      "count": 82,
+      "refs": [
+        "about.css:411",
+        "banner.css:640",
+        "bootstrap.css:19",
+        "bootstrap.css:1817",
+        "bootstrap.css:1821",
+        "bootstrap.css:1823"
+      ]
+    },
+    {
+      "hex": "#0d6efd",
+      "count": 39,
+      "refs": [
+        "bootstrap.css:9",
+        "bootstrap.css:32",
+        "bootstrap.css:71",
+        "bootstrap.css:2292",
+        "bootstrap.css:2293",
+        "bootstrap.css:2302"
+      ]
+    },
+    {
+      "hex": "#6c757d",
+      "count": 33,
+      "refs": [
+        "bootstrap.css:21",
+        "bootstrap.css:28",
+        "bootstrap.css:33",
+        "bootstrap.css:314",
+        "bootstrap.css:594",
+        "bootstrap.css:625"
+      ]
+    },
+    {
+      "hex": "#212529",
+      "count": 33,
+      "refs": [
+        "bootstrap.css:31",
+        "bootstrap.css:39",
+        "bootstrap.css:59",
+        "bootstrap.css:1916",
+        "bootstrap.css:2000",
+        "bootstrap.css:2022"
+      ]
+    },
+    {
+      "hex": "#dc3545",
+      "count": 25,
+      "refs": [
+        "bootstrap.css:13",
+        "bootstrap.css:37",
+        "bootstrap.css:2718",
+        "bootstrap.css:2743",
+        "bootstrap.css:2751",
+        "bootstrap.css:2761"
+      ]
+    },
+    {
+      "hex": "#198754",
+      "count": 25,
+      "refs": [
+        "bootstrap.css:16",
+        "bootstrap.css:34",
+        "bootstrap.css:2625",
+        "bootstrap.css:2650",
+        "bootstrap.css:2658",
+        "bootstrap.css:2668"
+      ]
+    },
+    {
+      "hex": "#f8f9fa",
+      "count": 19,
+      "refs": [
+        "bootstrap.css:23",
+        "bootstrap.css:38",
+        "bootstrap.css:1902",
+        "bootstrap.css:2977",
+        "bootstrap.css:2978",
+        "bootstrap.css:2988"
+      ]
+    },
+    {
+      "hex": "#e5e5e5",
+      "count": 18,
+      "refs": [
+        "bootstrap.css:5146",
+        "industries.css:11",
+        "industries.css:18",
+        "industries.css:19",
+        "industries.css:391",
+        "job.css:80"
+      ]
+    },
+    {
+      "hex": "#ffc107",
+      "count": 17,
+      "refs": [
+        "bootstrap.css:15",
+        "bootstrap.css:36",
+        "bootstrap.css:2943",
+        "bootstrap.css:2944",
+        "bootstrap.css:2954",
+        "bootstrap.css:2955"
+      ]
+    },
+    {
+      "hex": "#0dcaf0",
+      "count": 15,
+      "refs": [
+        "bootstrap.css:18",
+        "bootstrap.css:35",
+        "bootstrap.css:2926",
+        "bootstrap.css:2927",
+        "bootstrap.css:2937",
+        "bootstrap.css:2938"
+      ]
+    },
+    {
+      "hex": "#113754",
+      "count": 15,
+      "refs": [
+        "color.css:212",
+        "footer.css:137",
+        "footer.css:146",
+        "footer.css:147",
+        "header.css:521",
+        "style.css:73"
+      ]
+    },
+    {
+      "hex": "#e9ecef",
+      "count": 13,
+      "refs": [
+        "bootstrap.css:24",
+        "bootstrap.css:2040",
+        "bootstrap.css:2049",
+        "bootstrap.css:2065",
+        "bootstrap.css:2215",
+        "bootstrap.css:2570"
+      ]
+    },
+    {
+      "hex": "#dee2e6",
+      "count": 13,
+      "refs": [
+        "bootstrap.css:25",
+        "bootstrap.css:63",
+        "bootstrap.css:2411",
+        "bootstrap.css:2440",
+        "bootstrap.css:3519",
+        "bootstrap.css:3523"
+      ]
+    },
+    {
+      "hex": "#eff2e6",
+      "count": 11,
+      "refs": [
+        "about.css:404",
+        "category.css:73",
+        "chooseus.css:135",
+        "chooseus.css:212",
+        "footer.css:157",
+        "header.css:690"
+      ]
+    },
+    {
+      "hex": "#666666",
+      "count": 8,
+      "refs": [
+        "about.css:302",
+        "header.css:736",
+        "process.css:25",
+        "process.css:80",
+        "style.css:72",
+        "style.css:74"
+      ]
+    },
+    {
+      "hex": "#adb5bd",
+      "count": 6,
+      "refs": [
+        "bootstrap.css:27",
+        "bootstrap.css:2448",
+        "bootstrap.css:2451",
+        "bootstrap.css:3264",
+        "bootstrap.css:3529",
+        "bootstrap.css:3530"
+      ]
+    },
+    {
+      "hex": "#dddddd",
+      "count": 6,
+      "refs": [
+        "elpath.css:145",
+        "elpath.css:148",
+        "elpath.css:151",
+        "elpath.css:154",
+        "elpath.css:157",
+        "style.css:1718"
+      ]
+    },
+    {
+      "hex": "#343a40",
+      "count": 5,
+      "refs": [
+        "bootstrap.css:22",
+        "bootstrap.css:30",
+        "bootstrap.css:3520",
+        "elpath.css:32",
+        "elpath.css:73"
+      ]
+    },
+    {
+      "hex": "#084298",
+      "count": 5,
+      "refs": [
+        "bootstrap.css:4685",
+        "bootstrap.css:5057",
+        "bootstrap.css:5061",
+        "bootstrap.css:5066",
+        "bootstrap.css:5067"
+      ]
+    },
+    {
+      "hex": "#41464b",
+      "count": 5,
+      "refs": [
+        "bootstrap.css:4694",
+        "bootstrap.css:5071",
+        "bootstrap.css:5075",
+        "bootstrap.css:5080",
+        "bootstrap.css:5081"
+      ]
+    },
+    {
+      "hex": "#0f5132",
+      "count": 5,
+      "refs": [
+        "bootstrap.css:4703",
+        "bootstrap.css:5085",
+        "bootstrap.css:5089",
+        "bootstrap.css:5094",
+        "bootstrap.css:5095"
+      ]
+    },
+    {
+      "hex": "#055160",
+      "count": 5,
+      "refs": [
+        "bootstrap.css:4712",
+        "bootstrap.css:5099",
+        "bootstrap.css:5103",
+        "bootstrap.css:5108",
+        "bootstrap.css:5109"
+      ]
+    },
+    {
+      "hex": "#664d03",
+      "count": 5,
+      "refs": [
+        "bootstrap.css:4721",
+        "bootstrap.css:5113",
+        "bootstrap.css:5117",
+        "bootstrap.css:5122",
+        "bootstrap.css:5123"
+      ]
+    },
+    {
+      "hex": "#842029",
+      "count": 5,
+      "refs": [
+        "bootstrap.css:4730",
+        "bootstrap.css:5127",
+        "bootstrap.css:5131",
+        "bootstrap.css:5136",
+        "bootstrap.css:5137"
+      ]
+    },
+    {
+      "hex": "#636464",
+      "count": 5,
+      "refs": [
+        "bootstrap.css:4739",
+        "bootstrap.css:5141",
+        "bootstrap.css:5145",
+        "bootstrap.css:5150",
+        "bootstrap.css:5151"
+      ]
+    },
+    {
+      "hex": "#141619",
+      "count": 5,
+      "refs": [
+        "bootstrap.css:4748",
+        "bootstrap.css:5155",
+        "bootstrap.css:5159",
+        "bootstrap.css:5164",
+        "bootstrap.css:5165"
+      ]
+    },
+    {
+      "hex": "#d63384",
+      "count": 4,
+      "refs": [
+        "bootstrap.css:12",
+        "bootstrap.css:73",
+        "elpath.css:14",
+        "elpath.css:55"
+      ]
+    },
+    {
+      "hex": "#ced4da",
+      "count": 4,
+      "refs": [
+        "bootstrap.css:26",
+        "bootstrap.css:2003",
+        "bootstrap.css:2193",
+        "bootstrap.css:2571"
+      ]
+    },
+    {
+      "hex": "#495057",
+      "count": 4,
+      "refs": [
+        "bootstrap.css:29",
+        "bootstrap.css:3675",
+        "bootstrap.css:4825",
+        "bootstrap.css:4826"
+      ]
+    },
+    {
+      "hex": "#0a58ca",
+      "count": 4,
+      "refs": [
+        "bootstrap.css:72",
+        "bootstrap.css:2879",
+        "bootstrap.css:2882",
+        "bootstrap.css:6767"
+      ]
+    },
+    {
+      "hex": "#fff3cd",
+      "count": 4,
+      "refs": [
+        "bootstrap.css:74",
+        "bootstrap.css:1874",
+        "bootstrap.css:4722",
+        "bootstrap.css:5114"
+      ]
+    },
+    {
+      "hex": "#373b3e",
+      "count": 4,
+      "refs": [
+        "bootstrap.css:1917",
+        "bootstrap.css:1920",
+        "bootstrap.css:2998",
+        "bootstrap.css:3002"
+      ]
+    },
+    {
+      "hex": "#86b7fe",
+      "count": 4,
+      "refs": [
+        "bootstrap.css:2024",
+        "bootstrap.css:2206",
+        "bootstrap.css:2287",
+        "bootstrap.css:4376"
+      ]
+    },
+    {
+      "hex": "#111111",
+      "count": 4,
+      "refs": [
+        "clients.css:72",
+        "portfolio.css:164",
+        "style.css:76",
+        "style.css:419"
+      ]
+    },
+    {
+      "hex": "#cccccc",
+      "count": 4,
+      "refs": [
+        "jquery.fancybox.min.css:1",
+        "jquery.fancybox.min.css:1",
+        "jquery.fancybox.min.css:1",
+        "nice-select.css:35"
+      ]
+    },
+    {
+      "hex": "#6f42c1",
+      "count": 3,
+      "refs": [
+        "bootstrap.css:11",
+        "elpath.css:11",
+        "elpath.css:52"
+      ]
+    },
+    {
+      "hex": "#fd7e14",
+      "count": 3,
+      "refs": [
+        "bootstrap.css:14",
+        "elpath.css:20",
+        "elpath.css:61"
+      ]
+    },
+    {
+      "hex": "#cfe2ff",
+      "count": 3,
+      "refs": [
+        "bootstrap.css:1818",
+        "bootstrap.css:4686",
+        "bootstrap.css:5058"
+      ]
+    },
+    {
+      "hex": "#bacbe6",
+      "count": 3,
+      "refs": [
+        "bootstrap.css:1819",
+        "bootstrap.css:1822",
+        "bootstrap.css:5062"
+      ]
+    }
+  ],
+  "font_families": [
+    {
+      "stack": "var(--title-font)",
+      "count": 27
+    },
+    {
+      "stack": "'icomoon'",
+      "count": 8
+    },
+    {
+      "stack": "'Font Awesome 5 Pro'",
+      "count": 8
+    },
+    {
+      "stack": "'Inter'",
+      "count": 7
+    },
+    {
+      "stack": "var(--text-font)",
+      "count": 5
+    },
+    {
+      "stack": "'Outfit'",
+      "count": 4
+    },
+    {
+      "stack": "var(--bs-font-sans-serif)",
+      "count": 3
+    },
+    {
+      "stack": "inherit",
+      "count": 2
+    },
+    {
+      "stack": "'Font Awesome 5 Brands'",
+      "count": 2
+    },
+    {
+      "stack": "var(--bs-body-font-family)",
+      "count": 1
+    },
+    {
+      "stack": "var(--bs-font-monospace)",
+      "count": 1
+    },
+    {
+      "stack": "",
+      "count": 1
+    },
+    {
+      "stack": "var(--bs-btn-font-family)",
+      "count": 1
+    },
+    {
+      "stack": "var(--bs-font-monospace) !important",
+      "count": 1
+    },
+    {
+      "stack": "'icomoon' !important",
+      "count": 1
+    },
+    {
+      "stack": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif}.fancybox-bg,.fancybox-inner,.fancybox-",
+      "count": 1
+    },
+    {
+      "stack": "'Inter', sans-serif",
+      "count": 1
+    }
+  ],
+  "font_sizes": [
+    {
+      "value": "16px",
+      "count": 47
+    },
+    {
+      "value": "20px",
+      "count": 23
+    },
+    {
+      "value": "18px",
+      "count": 20
+    },
+    {
+      "value": "14px",
+      "count": 18
+    },
+    {
+      "value": "24px",
+      "count": 16
+    },
+    {
+      "value": "0.875rem",
+      "count": 12
+    },
+    {
+      "value": "12px",
+      "count": 11
+    },
+    {
+      "value": "1.25rem",
+      "count": 11
+    },
+    {
+      "value": "1rem",
+      "count": 10
+    },
+    {
+      "value": "0.875em",
+      "count": 10
+    },
+    {
+      "value": "40px",
+      "count": 9
+    },
+    {
+      "value": "36px",
+      "count": 8
+    },
+    {
+      "value": "30px",
+      "count": 7
+    },
+    {
+      "value": "28px",
+      "count": 6
+    },
+    {
+      "value": "64px",
+      "count": 6
+    },
+    {
+      "value": "48px",
+      "count": 5
+    },
+    {
+      "value": "13px",
+      "count": 3
+    },
+    {
+      "value": "1em",
+      "count": 3
+    },
+    {
+      "value": "inherit",
+      "count": 3
+    },
+    {
+      "value": "7px",
+      "count": 3
+    }
+  ],
+  "radii": [
+    {
+      "value": "50%",
+      "count": 65
+    },
+    {
+      "value": "10px",
+      "count": 47
+    },
+    {
+      "value": "0.375rem",
+      "count": 25
+    },
+    {
+      "value": "0",
+      "count": 22
+    },
+    {
+      "value": "20px",
+      "count": 8
+    },
+    {
+      "value": "0.5rem",
+      "count": 7
+    },
+    {
+      "value": "0.25rem",
+      "count": 6
+    },
+    {
+      "value": "0px",
+      "count": 6
+    },
+    {
+      "value": "50px",
+      "count": 6
+    },
+    {
+      "value": "10px 10px 0px 0px",
+      "count": 6
+    },
+    {
+      "value": "30px",
+      "count": 5
+    },
+    {
+      "value": "4px",
+      "count": 5
+    },
+    {
+      "value": "1rem",
+      "count": 4
+    },
+    {
+      "value": "5px",
+      "count": 4
+    },
+    {
+      "value": "40px",
+      "count": 4
+    },
+    {
+      "value": "calc(0.375rem - 1px)",
+      "count": 3
+    },
+    {
+      "value": "2px",
+      "count": 3
+    },
+    {
+      "value": "3px",
+      "count": 3
+    },
+    {
+      "value": "60px",
+      "count": 3
+    },
+    {
+      "value": "255px 255px 255px 10px",
+      "count": 2
+    }
+  ],
+  "shadows": [
+    {
+      "value": "0 0 0 0.25rem rgba(13, 110, 253, 0.25)",
+      "count": 6
+    },
+    {
+      "value": "0px 0px 80px 0px rgba(0, 0, 0, 0.06)",
+      "count": 6
+    },
+    {
+      "value": "0 0.5rem 1rem rgba(0, 0, 0, 0.15)",
+      "count": 4
+    },
+    {
+      "value": "0 0 0 30px rgba(255, 255, 255, 0)",
+      "count": 4
+    },
+    {
+      "value": "0 0 0 0 rgba(255, 255, 255, 0)",
+      "count": 4
+    },
+    {
+      "value": "0 0 0 0.25rem rgba(25, 135, 84, 0.25)",
+      "count": 3
+    },
+    {
+      "value": "0 0 0 0.25rem rgba(220, 53, 69, 0.25)",
+      "count": 3
+    },
+    {
+      "value": "0px 10px 60px 0px rgba(0, 0, 0, 0.10)",
+      "count": 3
+    },
+    {
+      "value": "0 0 0 1px #fff, 0 0 0 0.25rem rgba(13, 110, 253, 0.25)",
+      "count": 2
+    },
+    {
+      "value": "var(--bs-btn-focus-box-shadow)",
+      "count": 2
+    }
+  ],
+  "transitions": [
+    {
+      "value": "all 500ms ease",
+      "count": 126
+    },
+    {
+      "value": "none",
+      "count": 38
+    },
+    {
+      "value": "all 1000ms ease",
+      "count": 20
+    },
+    {
+      "value": "all 300ms ease",
+      "count": 10
+    },
+    {
+      "value": "opacity 400ms ease",
+      "count": 10
+    },
+    {
+      "value": "all 900ms ease",
+      "count": 7
+    },
+    {
+      "value": "color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-ou",
+      "count": 6
+    },
+    {
+      "value": "transform 0.3s ease-in-out",
+      "count": 6
+    },
+    {
+      "value": ".5s",
+      "count": 6
+    },
+    {
+      "value": "all 8000ms linear",
+      "count": 5
+    }
+  ],
+  "z_index": [
+    {
+      "value": "1",
+      "count": 46
+    },
+    {
+      "value": "-1",
+      "count": 17
+    },
+    {
+      "value": "2",
+      "count": 14
+    },
+    {
+      "value": "1020",
+      "count": 12
+    },
+    {
+      "value": "3",
+      "count": 8
+    },
+    {
+      "value": "5",
+      "count": 8
+    },
+    {
+      "value": "auto",
+      "count": 6
+    },
+    {
+      "value": "1045",
+      "count": 6
+    },
+    {
+      "value": "999",
+      "count": 4
+    },
+    {
+      "value": "0",
+      "count": 3
+    }
+  ],
+  "breakpoints": [
+    {
+      "query": "(prefers-reduced-motion: reduce)",
+      "count": 25
+    },
+    {
+      "query": "only screen and (max-width: 1200px)",
+      "count": 22
+    },
+    {
+      "query": "only screen and (max-width: 991px)",
+      "count": 22
+    },
+    {
+      "query": "only screen and (max-width: 767px)",
+      "count": 22
+    },
+    {
+      "query": "only screen and (max-width: 599px)",
+      "count": 22
+    },
+    {
+      "query": "only screen and (max-width: 499px)",
+      "count": 22
+    },
+    {
+      "query": "(min-width: 1200px)",
+      "count": 21
+    },
+    {
+      "query": "(min-width: 576px)",
+      "count": 10
+    },
+    {
+      "query": "(min-width: 992px)",
+      "count": 9
+    },
+    {
+      "query": "(max-width: 575.98px)",
+      "count": 9
+    },
+    {
+      "query": "(max-width: 767.98px)",
+      "count": 9
+    },
+    {
+      "query": "(max-width: 991.98px)",
+      "count": 9
+    },
+    {
+      "query": "(max-width: 1199.98px)",
+      "count": 9
+    },
+    {
+      "query": "(max-width: 1399.98px)",
+      "count": 9
+    },
+    {
+      "query": "(min-width: 768px)",
+      "count": 8
+    },
+    {
+      "query": "(min-width: 1400px)",
+      "count": 8
+    },
+    {
+      "query": "only screen and (max-width: 1600px)",
+      "count": 1
+    },
+    {
+      "query": "(prefers-reduced-motion: no-preference)",
+      "count": 1
+    },
+    {
+      "query": "(max-width: 575.98px) and (prefers-reduced-motion: reduce)",
+      "count": 1
+    },
+    {
+      "query": "(max-width: 767.98px) and (prefers-reduced-motion: reduce)",
+      "count": 1
+    }
+  ],
+  "button_selectors": [
+    {
+      "selector": "/** button **/ .theme-btn"
+    },
+    {
+      "selector": ".theme-btn:hover"
+    },
+    {
+      "selector": ".theme-btn.btn-one"
+    },
+    {
+      "selector": ".theme-btn.btn-two"
+    },
+    {
+      "selector": ".theme-btn:before"
+    },
+    {
+      "selector": ".theme-btn:after"
+    },
+    {
+      "selector": ".theme-btn:hover:before, .theme-btn:hover:after"
+    },
+    {
+      "selector": ".theme-btn span"
+    },
+    {
+      "selector": ".theme-btn span:before"
+    },
+    {
+      "selector": ".dueal-section .hiring-content.light .theme-btn:hover"
+    },
+    {
+      "selector": ".dueal-section .hiring-content.light .theme-btn:before, .dueal-section .hiring-content.light .theme-btn:after"
+    },
+    {
+      "selector": "a.theme-btn.btn-one.mr_20"
+    },
+    {
+      "selector": "a.theme-btn.banner-btn"
+    },
+    {
+      "selector": ".portfolio-block-one .theme-btn.btn-one a"
+    },
+    {
+      "selector": "a.theme-btn.btn-three.mr_20"
+    }
+  ]
+}

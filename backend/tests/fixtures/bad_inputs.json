@@ -1,0 +1,42 @@
+{
+  "empty_fields": {
+    "candidate_name": "",
+    "target_role": "",
+    "resume_text": "",
+    "company_name": "",
+    "job_title": "",
+    "job_description": ""
+  },
+  "short_resume": {
+    "candidate_name": "Test",
+    "target_role": "Role",
+    "resume_text": "Hi",
+    "company_name": "Company",
+    "job_title": "Title",
+    "job_description": "Need Python"
+  },
+  "long_resume": {
+    "candidate_name": "Test",
+    "target_role": "Role",
+    "resume_text": "A" * 35000,
+    "company_name": "Company",
+    "job_title": "Title",
+    "job_description": "Need Python"
+  },
+  "long_jd": {
+    "candidate_name": "Test",
+    "target_role": "Role",
+    "resume_text": "Has Python experience",
+    "company_name": "Company",
+    "job_title": "Title",
+    "job_description": "B" * 20000
+  },
+  "special_chars": {
+    "candidate_name": "Test <script>alert('xss')</script>",
+    "target_role": "Role",
+    "resume_text": "Has Python & SQL experience. \"Quotes\" and 'apostrophes'.",
+    "company_name": "Company",
+    "job_title": "Title",
+    "job_description": "Need Python & SQL"
+  }
+}
