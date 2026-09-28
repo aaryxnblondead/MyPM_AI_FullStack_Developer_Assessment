@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     gemini_api_key: str = ""
     llm_model: str = "gemini-2.5-flash"
     embedding_model: str = "gemini-embedding-2"
-    embedding_dim: int = 768
+    embedding_dim: int = 3072
     database_url: str = "sqlite:///./data/app.db"
     frontend_origin: str = "http://localhost:3000"
     prompt_version: str = "v1"

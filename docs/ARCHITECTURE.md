@@ -16,7 +16,7 @@ This file is the global context for the build. PDF in `docs/` is still the spec 
 Embedding model `gemini-embedding-2`:
 - GA April 2026. Input token limit 8192.
 - Output dim flexible 128 to 3072, default 3072, recommended 768, 1536, 3072. Uses MRL. Non default dims auto normalized.
-- `output_dimensionality` param controls size. We default to 768 to save storage and keep speed with little quality loss.
+- `output_dimensionality` param controls size. We default to 3072 (model native output) to avoid truncation surprises. Startup rebuilds the vec table if the configured dim ever changes.
 - `task_type` param exists in SDK but docs say do not use it for v2. Use prompt prefixes instead:
   - query: `task: search result | query: {text}` plus variants for QA and fact checking
   - doc: `title: none | text: {chunk}`
