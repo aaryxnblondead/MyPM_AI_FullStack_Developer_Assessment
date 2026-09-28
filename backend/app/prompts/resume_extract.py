@@ -42,7 +42,7 @@ RESUME_SCHEMA = {
                 "required": ["detail", "source"],
             },
         },
-        "total_years_experience": {"type": ["number", "null"]},
+        "total_years_experience": {"type": "number", "nullable": True},
         "roles": {
             "type": "array",
             "items": {
@@ -50,8 +50,8 @@ RESUME_SCHEMA = {
                 "properties": {
                     "title": {"type": "string"},
                     "company": {"type": "string"},
-                    "start": {"type": ["string", "null"]},
-                    "end": {"type": ["string", "null"]},
+                    "start": {"type": "string", "nullable": True},
+                    "end": {"type": "string", "nullable": True},
                     "bullets": {"type": "array", "items": {"type": "string"}},
                     "source": {"type": "string"},
                 },

@@ -29,6 +29,7 @@ def generate_json(system: str, user: str, schema: dict, temperature: float = 0.1
     key = require_key()
     client = genai.Client(api_key=key)
     last: Exception | None = None
+    backoff = (5.0, 20.0, 45.0)
     for attempt in range(3):
         try:
             res = client.models.generate_content(
@@ -45,7 +46,7 @@ def generate_json(system: str, user: str, schema: dict, temperature: float = 0.1
         except Exception as e:
             last = e
             if _is_rate_limit(e) or _is_timeout(e):
-                time.sleep(1.0 * (attempt + 1))
+                time.sleep(backoff[attempt])
                 continue
             raise HTTPException(status_code=502, detail="LLM request failed. Try again.") from e
     assert last is not None

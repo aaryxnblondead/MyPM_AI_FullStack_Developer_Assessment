@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 
 from app import models
 from app.config import settings
-from app.prompts.judge import JUDGE_SCHEMA, JUDGE_SYSTEM, judge_user
+from app.prompts.judge import JUDGE_SCHEMA, JUDGE_SYSTEM, judge_batch_user
 from app.services import embedder, isolation, vectors
 from app.services.llm import generate_json
 from app.services.scoring import NO_EVIDENCE_TEXT
@@ -68,30 +68,35 @@ def verify_item(raw: dict[str, Any], retrieved: dict[str, models.ResumeChunk]) -
     }
 
 
-def judge_one(requirement: dict[str, Any], chunks: list[models.ResumeChunk]) -> dict[str, Any]:
+def judge_all(requirements: list[dict[str, Any]], chunks_per_req: list[list[models.ResumeChunk]]) -> list[dict[str, Any]]:
     nonce = isolation.new_nonce()
-    block = "\n".join(isolation.wrap_chunk(c.id, c.text, nonce) for c in chunks)
-    user = judge_user(str(requirement["id"]), str(requirement["text"]), block)
+    sections = []
+    for req, chunks in zip(requirements, chunks_per_req):
+        block = "\n".join(isolation.wrap_chunk(c.id, c.text, nonce) for c in chunks)
+        sections.append((str(req["id"]), str(req["text"]), block))
+    user = judge_batch_user(sections)
     try:
         first = generate_json(JUDGE_SYSTEM, user, JUDGE_SCHEMA, temperature=settings.judge_temperature)
-        items = first.get("results", [])
-        raw = next((i for i in items if str(i.get("requirement_id")) == str(requirement["id"])), items[0] if items else None)
-        if raw is None:
-            raise ValueError("empty judge result")
-        return JudgeItem.model_validate(raw).model_dump()
+        return _pick_results(first, requirements)
     except HTTPException:
         raise
     except Exception:
         pass
     second = generate_json(JUDGE_SYSTEM, user, JUDGE_SCHEMA, temperature=settings.judge_temperature)
-    items = second.get("results", [])
-    raw = next((i for i in items if str(i.get("requirement_id")) == str(requirement["id"])), items[0] if items else None)
-    if raw is None:
-        raise HTTPException(status_code=502, detail="Judge returned no result. Try again.")
-    try:
-        return JudgeItem.model_validate(raw).model_dump()
-    except Exception as e:
-        raise HTTPException(status_code=502, detail="Judge output failed validation. Try again.") from e
+    return _pick_results(second, requirements, strict=True)
+
+
+def _pick_results(payload: dict[str, Any], requirements: list[dict[str, Any]], strict: bool = False) -> list[dict[str, Any]]:
+    items = payload.get("results", []) if isinstance(payload, dict) else []
+    out = []
+    for req in requirements:
+        raw = next((i for i in items if str(i.get("requirement_id")) == str(req["id"])), None)
+        if raw is None:
+            if strict:
+                raise HTTPException(status_code=502, detail="Judge skipped a requirement. Try again.")
+            raise ValueError("empty judge result")
+        out.append(JudgeItem.model_validate(raw).model_dump())
+    return out
 
 
 def evaluate_candidate(db: Session, candidate_id: str, jd_id: str) -> dict[str, Any]:
@@ -102,13 +107,16 @@ def evaluate_candidate(db: Session, candidate_id: str, jd_id: str) -> dict[str, 
     requirements: list[dict[str, Any]] = jd.requirements_structured or []
     if not requirements:
         raise HTTPException(status_code=422, detail="Job has no parsed requirements.")
+    chunks_per_req = [retrieve_chunks(db, candidate_id, str(req["text"])) for req in requirements]
+    try:
+        raw_all = judge_all(requirements, chunks_per_req)
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=502, detail="Judge output failed validation. Try again.") from e
     verified: list[dict[str, Any]] = []
-    raw_all: list[dict[str, Any]] = []
-    for req in requirements:
-        chunks = retrieve_chunks(db, candidate_id, str(req["text"]))
+    for req, chunks, raw in zip(requirements, chunks_per_req, raw_all):
         retrieved = {c.id: c for c in chunks}
-        raw = judge_one(req, chunks)
-        raw_all.append(raw)
         verified.append(verify_item(raw, retrieved))
     for v in verified:
         if v["verdict"] == "no_evidence":

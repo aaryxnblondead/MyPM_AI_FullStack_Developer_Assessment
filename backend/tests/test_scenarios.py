@@ -54,13 +54,16 @@ def test_standard_riya_shah_mocked(monkeypatch, tmp_path):
         ],
     )
     monkeypatch.setattr(
-        "app.services.evaluator.judge_one",
-        lambda req, chunks: {
-            "requirement_id": req["id"],
-            "verdict": "met" if req["id"] == "r1" else "no_evidence",
-            "evidence": [{"chunk_id": chunks[0].id, "quote": "five years of B2B SaaS customer success experience"}] if req["id"] == "r1" else [],
-            "reasoning": "Mocked",
-        },
+        "app.services.evaluator.judge_all",
+        lambda reqs, per_req: [
+            {
+                "requirement_id": req["id"],
+                "verdict": "met" if req["id"] == "r1" else "no_evidence",
+                "evidence": [{"chunk_id": per_req[i][0].id, "quote": "five years of B2B SaaS customer success experience"}] if req["id"] == "r1" else [],
+                "reasoning": "Mocked",
+            }
+            for i, req in enumerate(reqs)
+        ],
     )
     monkeypatch.setattr("app.services.explanation.build_explanation", lambda _r: "Riya Shah matches the experience requirement but lacks Salesforce, enterprise renewals, and US customer experience.")
     monkeypatch.setattr(
@@ -140,13 +143,16 @@ def test_injection_prompt_mocked(monkeypatch, tmp_path):
         lambda _t: [{"id": "r1", "text": "Salesforce", "category": "tool", "must_have": True}],
     )
     monkeypatch.setattr(
-        "app.services.evaluator.judge_one",
-        lambda req, chunks: {
-            "requirement_id": req["id"],
-            "verdict": "no_evidence",
-            "evidence": [],
-            "reasoning": "Mocked",
-        },
+        "app.services.evaluator.judge_all",
+        lambda reqs, per_req: [
+            {
+                "requirement_id": req["id"],
+                "verdict": "no_evidence",
+                "evidence": [],
+                "reasoning": "Mocked",
+            }
+            for req in reqs
+        ],
     )
     monkeypatch.setattr("app.services.explanation.build_explanation", lambda _r: "No evidence found for required skills.")
     monkeypatch.setattr(
@@ -220,13 +226,16 @@ def test_missing_evidence_no_claim_in_outreach(monkeypatch, tmp_path):
         ],
     )
     monkeypatch.setattr(
-        "app.services.evaluator.judge_one",
-        lambda req, chunks: {
-            "requirement_id": req["id"],
-            "verdict": "met" if req["id"] == "r1" else "no_evidence",
-            "evidence": [{"chunk_id": chunks[0].id, "quote": "used HubSpot"}] if req["id"] == "r1" else [],
-            "reasoning": "Mocked",
-        },
+        "app.services.evaluator.judge_all",
+        lambda reqs, per_req: [
+            {
+                "requirement_id": req["id"],
+                "verdict": "met" if req["id"] == "r1" else "no_evidence",
+                "evidence": [{"chunk_id": per_req[i][0].id, "quote": "used HubSpot"}] if req["id"] == "r1" else [],
+                "reasoning": "Mocked",
+            }
+            for i, req in enumerate(reqs)
+        ],
     )
     monkeypatch.setattr("app.services.explanation.build_explanation", lambda _r: "Matches HubSpot. Missing Salesforce, Python, Kubernetes.")
     monkeypatch.setattr(
@@ -313,7 +322,7 @@ def test_persistence_reopen_edit(monkeypatch, tmp_path):
     monkeypatch.setattr("app.services.embedder.embed_documents", lambda texts: [[1.0, 0.0, 0.0, 0.0] for _ in texts])
     monkeypatch.setattr("app.services.resume_extractor.extract_resume", lambda _t: {"skills": [], "education": [], "total_years_experience": 5, "roles": [], "metrics": []})
     monkeypatch.setattr("app.services.jd_parser.parse_jd", lambda _t: [{"id": "r1", "text": "HubSpot", "category": "tool", "must_have": True}])
-    monkeypatch.setattr("app.services.evaluator.judge_one", lambda req, chunks: {"requirement_id": req["id"], "verdict": "met", "evidence": [{"chunk_id": chunks[0].id, "quote": "used HubSpot"}], "reasoning": "Mocked"})
+    monkeypatch.setattr("app.services.evaluator.judge_all", lambda reqs, per_req: [{"requirement_id": req["id"], "verdict": "met", "evidence": [{"chunk_id": per_req[i][0].id, "quote": "used HubSpot"}], "reasoning": "Mocked"} for i, req in enumerate(reqs)])
     monkeypatch.setattr("app.services.explanation.build_explanation", lambda _r: "Original explanation.")
     monkeypatch.setattr("app.services.outreach.build_outreach", lambda _n, _c, _j, _r: {"subject": "Hi", "body": "Original body."})
 

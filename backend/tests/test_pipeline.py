@@ -43,13 +43,16 @@ def test_pipeline_persists_record(monkeypatch, tmp_path):
         lambda db, cid, req: db.query(models.ResumeChunk).filter_by(candidate_id=cid).all()[:4],
     )
     monkeypatch.setattr(
-        "app.services.evaluator.judge_one",
-        lambda req, chunks: {
-            "requirement_id": req["id"],
-            "verdict": "met" if req["id"] == "r1" else "no_evidence",
-            "evidence": [{"chunk_id": chunks[0].id, "quote": chunks[0].text}] if req["id"] == "r1" else [],
-            "reasoning": "mocked",
-        },
+        "app.services.evaluator.judge_all",
+        lambda reqs, per_req: [
+            {
+                "requirement_id": req["id"],
+                "verdict": "met" if req["id"] == "r1" else "no_evidence",
+                "evidence": [{"chunk_id": per_req[i][0].id, "quote": per_req[i][0].text}] if req["id"] == "r1" else [],
+                "reasoning": "mocked",
+            }
+            for i, req in enumerate(reqs)
+        ],
     )
     monkeypatch.setattr("app.services.explanation.build_explanation", lambda _r: "Mocked summary.")
     monkeypatch.setattr(
