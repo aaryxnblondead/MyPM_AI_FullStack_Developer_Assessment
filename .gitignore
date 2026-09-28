@@ -1,0 +1,28 @@
+# env
+.env
+!.env.example
+frontend/.env.local
+frontend/.env*.local
+
+# python
+__pycache__/
+*.py[cod]
+backend/.venv/
+backend/app.db
+.pytest_cache/
+.mypy_cache/
+
+# node
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# os
+.DS_Store
+Thumbs.db
+
+# sqlite
+*.db
+*.db-journal
