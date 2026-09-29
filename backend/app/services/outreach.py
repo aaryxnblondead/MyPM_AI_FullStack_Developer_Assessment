@@ -8,6 +8,45 @@ def _words(s: str) -> set[str]:
     return set(re.findall(r"[a-z]{3,}", s.lower()))
 
 
+def normalize_body(body: str) -> str:
+    """Normalize line endings and paragraph spacing without flattening."""
+    text = body.replace("\r\n", "\n").replace("\r", "\n")
+    lines = [ln.rstrip() for ln in text.split("\n")]
+    text = "\n".join(lines)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip("\n ")
+
+
+def truncate_words(text: str, limit: int = 150) -> str:
+    """Truncate to `limit` words while preserving original line breaks."""
+    parts = re.split(r"(\s+)", text)
+    words = 0
+    out: list[str] = []
+    for p in parts:
+        if not p:
+            continue
+        if re.fullmatch(r"\s+", p):
+            out.append(p)
+            continue
+        words += 1
+        if words > limit:
+            break
+        out.append(p)
+    return "".join(out).strip()
+
+
+def shape_email(body: str) -> str:
+    """Enforce email line breaks even if the LLM returns one flat paragraph."""
+    text = normalize_body(body)
+    # Greeting on its own line: "Hi Riya, <rest>" -> "Hi Riya,\n\n<rest>"
+    m = re.match(r"^(Hi [^,\n]{1,40},)[ \t]+(\S.*)$", text, re.DOTALL)
+    if m and "\n" not in m.group(1):
+        text = m.group(1).rstrip() + "\n\n" + m.group(2).lstrip()
+    # Sign-off on its own lines: "... availability. Best, {Recruiter Name}"
+    text = re.sub(r"[ \t]*\n?[ \t]*Best,[ \t]*\n?[ \t]*(\{Recruiter Name\})", r"\n\nBest,\n\1", text)
+    return normalize_body(text)
+
+
 def build_outreach(candidate_name: str, company: str, job_title: str, results: list[dict]) -> dict[str, str]:
     good = [r for r in results if r.get("verdict") in ("met", "partial") and r.get("evidence")]
     lines = []
@@ -21,12 +60,15 @@ def build_outreach(candidate_name: str, company: str, job_title: str, results: l
         OUTREACH_SCHEMA,
     )
     subject = str(out.get("subject", "")).strip()
-    body = str(out.get("body", "")).strip()
+    body = normalize_body(str(out.get("body", "")))
     if not subject or not body:
         raise ValueError("empty outreach")
-    words = len(body.split())
-    if words > 150:
-        body = " ".join(body.split()[:150])
+    if len(body.split()) > 150:
+        body = normalize_body(truncate_words(body, 150))
+    # Ensure email shape: greeting, blank line, paragraphs, blank line, sign-off.
+    if "Best," not in body:
+        body = normalize_body(body + "\n\nBest,\n{Recruiter Name}")
+    body = shape_email(body)
     return {"subject": subject, "body": body}
 
 

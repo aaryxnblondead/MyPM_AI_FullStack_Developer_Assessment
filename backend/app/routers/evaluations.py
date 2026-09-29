@@ -32,10 +32,12 @@ def _to_record(e: models.Evaluation, db: Session) -> EvaluationRecord:
         explanation=e.explanation,
         explanation_edited=e.explanation_edited,
         outreach_subject=e.outreach_subject,
+        outreach_subject_edited=e.outreach_subject_edited,
         outreach_body=e.outreach_body,
         outreach_body_edited=e.outreach_body_edited,
         injection_flagged=e.injection_flagged,
         injection_notes=e.injection_notes,
+        resume_structured=cand.resume_structured if cand else None,
         created_at=e.created_at,
     )
 
@@ -99,6 +101,10 @@ def patch_evaluation(evaluation_id: str, payload: EvaluationPatch, db: Session =
         if len(payload.explanation_edited) > 5000:
             raise HTTPException(status_code=422, detail="Edited explanation is too long.")
         e.explanation_edited = payload.explanation_edited
+    if payload.outreach_subject_edited is not None:
+        if len(payload.outreach_subject_edited) > 500:
+            raise HTTPException(status_code=422, detail="Edited subject is too long.")
+        e.outreach_subject_edited = payload.outreach_subject_edited
     if payload.outreach_body_edited is not None:
         if len(payload.outreach_body_edited) > 5000:
             raise HTTPException(status_code=422, detail="Edited outreach is too long.")

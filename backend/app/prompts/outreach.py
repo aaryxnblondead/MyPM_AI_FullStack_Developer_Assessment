@@ -6,6 +6,11 @@ OUTREACH_SYSTEM = (
     "Mention the company and job title. Reference 2 or 3 verified strengths with plain words. "
     "Never claim anything marked no_evidence. Keep it under 150 words. "
     "Human and direct tone. No filler openers. Low pressure call to action. "
+    "Format the body as a real email with line breaks: "
+    "greeting line 'Hi <FirstName>,', then a blank line, "
+    "then one or two short paragraphs separated by a blank line, "
+    "then a blank line, then sign-off 'Best,' on its own line followed by '{Recruiter Name}' on the next line. "
+    "Use single newlines within a paragraph and blank lines between blocks. "
     "Use the placeholder {Recruiter Name} for the sender. Return JSON only."
 )
 

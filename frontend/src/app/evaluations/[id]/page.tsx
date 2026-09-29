@@ -33,7 +33,7 @@ export default function EvaluationPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [viewMode, setViewMode] = useState<ViewMode>("default");
-  const [profileOpen, setProfileOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(true);
   const [explanationDraft, setExplanationDraft] = useState("");
   const [outreachSubjectDraft, setOutreachSubjectDraft] = useState("");
   const [outreachBodyDraft, setOutreachBodyDraft] = useState("");
@@ -354,8 +354,11 @@ export default function EvaluationPage() {
               </div>
             ) : (
               <div className="mt-4">
-                <p className="font-medium text-title">{record.outreach_subject_edited ?? record.outreach_subject ?? "No subject"}</p>
-                <p className="mt-2 text-body whitespace-pre-wrap">{record.outreach_body_edited ?? record.outreach_body ?? "No body generated."}</p>
+                <p className="text-xs uppercase tracking-wide text-muted">Subject</p>
+                <p className="mt-1 font-medium text-title">{record.outreach_subject_edited ?? record.outreach_subject ?? "No subject"}</p>
+                <div className="mt-3 rounded-card border border-border bg-surface px-5 py-4">
+                  <p className="text-body leading-7 whitespace-pre-wrap">{record.outreach_body_edited ?? record.outreach_body ?? "No body generated."}</p>
+                </div>
               </div>
             )}
           </Card>
@@ -376,8 +379,15 @@ export default function EvaluationPage() {
             </div>
             {profileOpen && record.candidate_id && (
               <div className="mt-4 space-y-4">
+                {!record.resume_structured ? (
+                  <p className="text-sm text-muted">No profile data extracted for this candidate.</p>
+                ) : (
+                  <>
                 <div>
                   <h3 className="font-display text-sm font-semibold text-title">Skills</h3>
+                  {(record.resume_structured?.skills?.length ?? 0) === 0 ? (
+                    <p className="mt-1 text-sm text-muted">No skills extracted.</p>
+                  ) : (
                   <div className="mt-2 flex flex-wrap gap-2">
                     {record.resume_structured?.skills?.map((s, i) => (
                       <Badge key={i} className={s.known ? "bg-primary text-surface" : "bg-tint text-title border border-primary"}>
@@ -385,28 +395,37 @@ export default function EvaluationPage() {
                       </Badge>
                     ))}
                   </div>
+                  )}
                 </div>
                 <div>
                   <h3 className="font-display text-sm font-semibold text-title">Experience</h3>
+                  {(record.resume_structured?.roles?.length ?? 0) === 0 ? (
+                    <p className="mt-1 text-sm text-muted">No experience extracted.</p>
+                  ) : (
                   <div className="mt-2 space-y-2">
                     {record.resume_structured?.roles?.map((r, i) => (
                       <div key={i} className="text-sm text-body">
                         <p className="font-medium text-title">{r.title}</p>
                         <p className="text-muted">{r.company}</p>
-                        {r.bullets.map((b, j) => (
+                        {(r.bullets ?? []).map((b, j) => (
                           <p key={j} className="text-xs text-body">• {b}</p>
                         ))}
                       </div>
                     ))}
                   </div>
+                  )}
                 </div>
                 <div>
                   <h3 className="font-display text-sm font-semibold text-title">Education</h3>
+                  {(record.resume_structured?.education?.length ?? 0) === 0 ? (
+                    <p className="mt-1 text-sm text-muted">No education extracted.</p>
+                  ) : (
                   <div className="mt-2 space-y-1">
                     {record.resume_structured?.education?.map((e, i) => (
                       <p key={i} className="text-sm text-body">{e.detail}</p>
                     ))}
                   </div>
+                  )}
                 </div>
                 {record.resume_structured?.total_years_experience && (
                   <div>
@@ -423,6 +442,8 @@ export default function EvaluationPage() {
                       ))}
                     </div>
                   </div>
+                )}
+                  </>
                 )}
               </div>
             )}

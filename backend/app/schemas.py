@@ -131,6 +131,7 @@ class EvaluationRecord(BaseModel):
     outreach_body_edited: str | None = None
     injection_flagged: bool = False
     injection_notes: str = ""
+    resume_structured: dict[str, Any] | None = None
     created_at: Any = None
 
 

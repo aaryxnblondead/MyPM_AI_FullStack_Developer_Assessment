@@ -36,6 +36,29 @@ def norm(s: str) -> str:
     return re.sub(r"\s+", " ", s.strip().lower())
 
 
+STOPWORDS = frozenset(
+    "the,a,an,and,or,for,with,from,that,this,have,has,had,will,shall,should,must,need,needs,"
+    "required,requirement,requirements,experience,experienced,years,year,including,include,"
+    "candidate,lists,list,skill,skills,ability,strong,plus,role,job,work,using,use,used,production,"
+    "project,core,explicitly,there,mention,provided,only,into,backend,frontend".split(",")
+)
+
+KEYWORD_MIN_LEN = 4
+KEYWORD_EXTRA = 4
+
+
+def _keywords(text: str) -> set[str]:
+    tokens = re.findall(r"[a-z0-9]+", text.lower())
+    out: set[str] = set()
+    for t in tokens:
+        if len(t) < KEYWORD_MIN_LEN:
+            continue
+        if t in STOPWORDS:
+            continue
+        out.add(t)
+    return out
+
+
 def retrieve_chunks(db: Session, candidate_id: str, requirement_text: str) -> list[models.ResumeChunk]:
     qvec = embedder.embed_query(requirement_text)
     hits = vectors.nearest_chunks_for_candidate(db, candidate_id, qvec, settings.retrieval_k)
@@ -43,6 +66,28 @@ def retrieve_chunks(db: Session, candidate_id: str, requirement_text: str) -> li
     rows = db.query(models.ResumeChunk).filter(models.ResumeChunk.id.in_(ids)).all() if ids else []
     order = {cid: i for i, (cid, _) in enumerate(hits)}
     rows.sort(key=lambda r: order.get(r.id, 999))
+    # Keyword fallback: vector search is semantic and can miss an exact
+    # skill mention (e.g. PostgreSQL) buried mid-chunk. Union in chunks that
+    # literally contain distinctive requirement terms so the judge sees them.
+    try:
+        keys = _keywords(requirement_text)
+        if keys:
+            seen = {r.id for r in rows}
+            all_rows = db.query(models.ResumeChunk).filter_by(candidate_id=candidate_id).all()
+            scored: list[tuple[int, models.ResumeChunk]] = []
+            for c in all_rows:
+                if c.id in seen:
+                    continue
+                hay = norm(c.text or "")
+                n = sum(1 for k in keys if k in hay)
+                if n:
+                    scored.append((n, c))
+            scored.sort(key=lambda p: (-p[0], p[1].chunk_index))
+            for _, c in scored[:KEYWORD_EXTRA]:
+                rows.append(c)
+                seen.add(c.id)
+    except Exception:
+        pass
     return rows
 
 
@@ -56,15 +101,20 @@ def verify_item(raw: dict[str, Any], retrieved: dict[str, models.ResumeChunk]) -
         if ev.quote and norm(ev.quote) in norm(chunk.text):
             kept.append({"chunk_id": ev.chunk_id, "quote": ev.quote})
     verdict = item.verdict
+    reasoning = item.reasoning
     if verdict in ("met", "partial") and not kept:
         verdict = "no_evidence"
+        # Original reasoning described presence but no quote survived
+        # verification — keeping it renders "No evidence" + "candidate lists
+        # X" in the UI. Replace with a neutral note.
+        reasoning = "No verifiable quote found in the retrieved resume chunks."
     if verdict == "no_evidence":
         kept = []
     return {
         "requirement_id": item.requirement_id,
         "verdict": verdict,
         "evidence": kept,
-        "reasoning": item.reasoning,
+        "reasoning": reasoning,
     }
 
 

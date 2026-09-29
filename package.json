@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "dev": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"cd backend; .\\.venv\\Scripts\\python.exe -m uvicorn app.main:app --reload --port 8000\"",
     "dev-backend": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/dev-backend.ps1",
     "dev-frontend": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/dev-frontend.ps1",
     "test": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/test.ps1"
